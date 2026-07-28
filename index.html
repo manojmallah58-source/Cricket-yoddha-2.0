@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>CRICKET YODDHA - Streaming</title>
+  <title>CRICKET YODDHA - Elite Streaming</title>
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;800&family=Outfit:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -125,7 +125,8 @@
   </div>
 
   <div class="actions">
-    <a href="#" onclick="handleTelegramClick(); return false;" class="btn-action">CLICK FOLLOW TELEGRAM</a>
+    <!-- Seedha direct Telegram link open hoga -->
+    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="btn-action">CLICK FOLLOW TELEGRAM</a>
     <div class="grid">
       <button onclick="location.reload()" class="small-btn"><i class="material-icons">refresh</i> REFRESH</button>
       <button onclick="shareLink()" class="small-btn"><i class="material-icons">share</i> SHARE</button>
@@ -133,7 +134,7 @@
     <div class="stats" id="live-count">TODAY'S WATCHING - ...</div>
   </div>
 
-  <!-- COMPULSORY FORCE POPUP -->
+  <!-- COMPULSORY FORCE POPUP (Agar preview time khatam ho tabhi aayega) -->
   <div class="overlay" id="forcePop">
     <div class="popup">
       <div class="popup-icon">
@@ -155,15 +156,18 @@
     const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
 
     window.onload = () => {
-      // 24-Hour Access Security Check
       const lastJoin = localStorage.getItem(CONFIG.timeKey);
       const now = new Date().getTime();
-      if (!(lastJoin && (now - lastJoin < CONFIG.expiry))) {
+      
+      if (lastJoin && (now - lastJoin < CONFIG.expiry)) {
+        document.getElementById('main-stage').classList.remove('locked');
+      } else {
+        document.getElementById('main-stage').classList.add('locked');
         setTimeout(() => {
-          document.getElementById('main-stage').classList.add('locked');
           document.getElementById('forcePop').classList.add('active');
         }, CONFIG.preview);
       }
+      
       loadStream();
     };
 
@@ -181,7 +185,6 @@
         if (!response.ok) throw new Error("Fetch failed");
         
         const data = await response.json();
-        // Support both old/new JSON layouts (iframes array or channels object)
         let iframeSrc = "";
         if (data.iframes) {
           const found = data.iframes.find(x => x.id === id);
@@ -208,10 +211,6 @@
       const errScreen = document.getElementById('error-screen');
       errScreen.style.display = 'flex';
       document.getElementById('error-msg').innerText = msg;
-    }
-
-    function handleTelegramClick() {
-      document.getElementById('forcePop').classList.add('active');
     }
 
     function verifyAccess() {
