@@ -97,7 +97,7 @@
       box-shadow: 0 4px 16px rgba(0,136,204,0.4); text-transform: uppercase; letter-spacing: 0.5px;
     }
 
-    /* COMPACT PHOTO-MATCHING AD BANNER */
+    /* PERFECT FIXED AD BANNER (Video fully visible, no cropping) */
     .ad-section-wrapper {
       margin-top: 10px;
       width: 100%;
@@ -118,7 +118,7 @@
     }
     .elite-video-side {
       width: 100%;
-      height: 130px; /* Exact compact height matching your screenshot style */
+      aspect-ratio: 16/9; /* Fixed standard ratio so video never cuts */
       background: #000;
       position: relative;
       overflow: hidden;
@@ -127,7 +127,8 @@
     .elite-video-side video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* Changed from cover to contain so full video is visible without cutting */
+      background: #000;
       display: block;
     }
     .live-badge {
@@ -247,7 +248,7 @@
     </div>
     <div class="stats" id="live-count">TODAY'S WATCHING - ...</div>
 
-    <!-- COMPACT PHOTO-MATCHING AD BANNER -->
+    <!-- PERFECT FIXED AD BANNER -->
     <div class="ad-section-wrapper">
       <div class="elite-ad-banner">
         <div class="elite-video-side">
