@@ -16,10 +16,9 @@
     header { height: 60px; background: #000; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; }
     .logo-img { height: 42px; width: auto; }
 
-    /* LOCKED STAGE EFFECT */
+    /* LOCKED STAGE EFFECT (Blur Removed) */
     #main-stage { width: 100%; position: relative; transition: filter 0.3s ease; }
     #main-stage.locked .video-box {
-      filter: blur(12px);
       pointer-events: none;
       user-select: none;
     }
@@ -236,7 +235,7 @@
     <img src="https://i.ibb.co/HLkW7zJV/ei-1765534270242-removebg-preview.png" alt="Logo" class="logo-img">
   </header>
 
-  <!-- MAIN STAGE (Lock / Unlock Container) -->
+  <!-- MAIN STAGE -->
   <div id="main-stage">
     <div class="video-box">
       <iframe id="main-player" allowfullscreen="true" scrolling="no" allow="autoplay; encrypted-media"></iframe>
