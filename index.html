@@ -251,7 +251,7 @@
   </div>
 
   <div class="actions">
-    <a href="https://t.me/%2BdXlyR7OpEJRlMGM1?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAUVzaVwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp1o4j1pVQYQNdg-cWdS2UeNl2noFpnHnpRYPhSh2CdhejVXMi4afITb_rrW7_aem_akVcgrPr6l0fDhOBjH89tQ" target="_blank" onclick="verifyAccess()" class="btn-action">CLICK FOLLOW TELEGRAM</a>
+    <a href="https://t.me/%2BdXlyR7OpEJRlMGM1?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAUVzaVwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp1o4j1pVQYQNdg-cWdS2UeNl2noFpnHnpRYPhSh2CdhejVXMi4afITb_rrW7_aem_akVcgrPr6l0fDhOBjH89tQ" target="_blank" class="btn-action">CLICK FOLLOW TELEGRAM</a>
     <div class="grid">
       <button onclick="location.reload()" class="small-btn"><i class="material-icons">refresh</i> REFRESH</button>
       <button onclick="shareLink()" class="small-btn"><i class="material-icons">share</i> SHARE</button>
@@ -306,7 +306,6 @@
 
   <script>
     const JSON_URL = "https://cricket-yoddha-2-o-json.vercel.app/links.json";
-    // Popup ke liye naya link set kar diya gaya hai
     const TELEGRAM_POPUP_LINK = "https://t.me/addlist/ZVgzdiBtVBwzM2M1";
 
     window.onload = () => {
@@ -360,6 +359,7 @@
       document.getElementById('error-msg').innerText = msg;
     }
 
+    // Jab user 'Already Joined' ya 'Join Telegram Now' click karega, popup band ho jayega aur video play hone lagegi
     function verifyAccess() {
       document.getElementById('forcePop').classList.remove('active');
       document.getElementById('main-stage').classList.remove('locked');
