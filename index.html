@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Mohit Vox - Elite Streaming</title>
+  <title>CRICKET YODDHA - Elite Streaming</title>
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;800&family=Outfit:wght@400;700&family=Bebas+Neue&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
@@ -14,10 +14,9 @@
     body { background: var(--bg); font-family: 'Outfit', sans-serif; color: #fff; padding-bottom: 20px; overflow-x: hidden; min-height: 100vh; width: 100%; }
 
     header { height: 60px; background: #000; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; }
-    .header-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 3px; color: #fff; }
-    .header-title span { color: #d32f2f; }
+    .logo-img { height: 42px; width: auto; }
 
-    /* LOCKED STAGE EFFECT */
+    /* LOCKED STAGE EFFECT (Blur Removed) */
     #main-stage { width: 100%; position: relative; transition: filter 0.3s ease; }
     #main-stage.locked .video-box {
       pointer-events: none;
@@ -70,7 +69,8 @@
 
     /* COMPULSORY FORCE POPUP */
     .overlay {
-      display: none; position: fixed; inset: 0;
+
+display: none; position: fixed; inset: 0;
       background: rgba(0,0,0,0.88); backdrop-filter: blur(10px);
       z-index: 9000; justify-content: center; align-items: center; padding: 20px;
     }
@@ -89,22 +89,15 @@
     }
     .popup-icon svg { width: 26px; height: 26px; fill: #fff; }
     .accent-line { width: 36px; height: 3px; background: #d32f2f; border-radius: 2px; margin: 0 auto 14px; }
-    .popup-brand { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 4px; color: #fff; margin-bottom: 8px; }
-    .popup p { color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
-    
-    .popup-btn-container { display: flex; flex-direction: column; gap: 10px; }
+    .popup-brand { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 5px; color: #fff; margin-bottom: 8px; }
+    .popup p { color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 24px; }
     .btn-join {
-      width: 100%; padding: 13px; background: linear-gradient(135deg,#0088cc,#006aab);
-      border: none; color: #fff; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer;
+      width: 100%; padding: 14px; background: linear-gradient(135deg,#0088cc,#006aab);
+      border: none; color: #fff; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;
       box-shadow: 0 4px 16px rgba(0,136,204,0.4); text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .btn-already {
-      width: 100%; padding: 13px; background: linear-gradient(135deg,#059669,#10b981);
-      border: none; color: #fff; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer;
-      box-shadow: 0 4px 16px rgba(16,185,129,0.4); text-transform: uppercase; letter-spacing: 0.5px;
-    }
 
-    /* AD BANNER */
+    /* PERFECT FIXED AD BANNER */
     .ad-section-wrapper {
       margin-top: 10px;
       width: 100%;
@@ -191,7 +184,8 @@
       font-weight: 800;
       margin-bottom: 2px;
       line-height: 1.2;
-      font-family: 'Inter', sans-serif;
+
+font-family: 'Inter', sans-serif;
     }
     .elite-content-side h3 span {
       color: #38bdf8;
@@ -228,7 +222,7 @@
 
   <!-- LOADING SCREEN -->
   <div id="loading-screen">
-    <div class="load-logo" style="font-size:26px; text-align:center;">MOHIT <span>VOX</span></div>
+    <div class="load-logo">CRICKET <span>YODDHA</span></div>
     <p style="font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #666;">Connecting stream...</p>
   </div>
 
@@ -240,25 +234,25 @@
   </div>
 
   <header>
-    <div class="header-title">MOHIT <span>VOX</span></div>
+    <img src="https://i.ibb.co/HLkW7zJV/ei-1765534270242-removebg-preview.png" alt="Logo" class="logo-img">
   </header>
 
   <!-- MAIN STAGE -->
-  <div id="main-stage" class="locked">
+  <div id="main-stage">
     <div class="video-box">
       <iframe id="main-player" allowfullscreen="true" scrolling="no" allow="autoplay; encrypted-media"></iframe>
     </div>
   </div>
 
   <div class="actions">
-    <a href="https://t.me/%2BdXlyR7OpEJRlMGM1?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAUVzaVwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp1o4j1pVQYQNdg-cWdS2UeNl2noFpnHnpRYPhSh2CdhejVXMi4afITb_rrW7_aem_akVcgrPr6l0fDhOBjH89tQ" target="_blank" class="btn-action">CLICK FOLLOW TELEGRAM</a>
+    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="btn-action">CLICK FOLLOW TELEGRAM</a>
     <div class="grid">
       <button onclick="location.reload()" class="small-btn"><i class="material-icons">refresh</i> REFRESH</button>
       <button onclick="shareLink()" class="small-btn"><i class="material-icons">share</i> SHARE</button>
     </div>
     <div class="stats" id="live-count">TODAY'S WATCHING - ...</div>
 
-    <!-- AD BANNER -->
+    <!-- PERFECT FIXED AD BANNER -->
     <div class="ad-section-wrapper">
       <div class="elite-ad-banner">
         <div class="elite-video-side">
@@ -291,28 +285,32 @@
         <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
       </div>
       <div class="accent-line"></div>
-      <div class="popup-brand">MOHIT VOX</div>
-      <p>To watch all live matches seamlessly, joining our official Telegram channel is compulsory. Once joined, you can continue watching!</p>
-      
-      <div class="popup-btn-container">
-        <button class="btn-join" onclick="goTelegram()">👉 Join Telegram Now</button>
-        <button class="btn-already" onclick="verifyAccess()">✅ Already Joined</button>
-      </div>
+      <div class="popup-brand">CRICKET YODDHA</div>
+      <p>To watch all live matches seamlessly, joining our official Telegram channel is compulsory. Once joined, you will get free access for the next 24 hours!</p>
+      <button class="btn-join" onclick="goTelegram()">Join Telegram Now →</button>
     </div>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
   <script>
+    const CONFIG = { key: "yoddha_access_v12", timeKey: "yoddha_time_v12", preview: 15000, expiry: 86400000 };
     const JSON_URL = "https://cricket-yoddha-2-o-json.vercel.app/links.json";
-    const TELEGRAM_POPUP_LINK = "https://t.me/addlist/ZVgzdiBtVBwzM2M1";
+    const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
 
     window.onload = () => {
-      // Har baar page load/reload hone par theek 5 second baad popup aayega
-      setTimeout(() => {
-        document.getElementById('forcePop').classList.add('active');
-      }, 5000);
+      const lastJoin = localStorage.getItem(CONFIG.timeKey);
+      const now = new Date().getTime();
+      
+      if (lastJoin && (now - lastJoin < CONFIG.expiry)) {
+        document.getElementById('main-stage').classList.remove('locked');
+      } else {
+        document.getElementById('main-stage').classList.add('locked');
+        setTimeout(() => {
+          document.getElementById('forcePop').classList.add('active');
+        }, CONFIG.preview);
+      }
       
       loadStream();
     };
@@ -359,27 +357,28 @@
       document.getElementById('error-msg').innerText = msg;
     }
 
-    // Jab user 'Already Joined' ya 'Join Telegram Now' click karega, popup band ho jayega aur video play hone lagegi
     function verifyAccess() {
+      localStorage.setItem(CONFIG.key, 'true');
+      localStorage.setItem(CONFIG.timeKey, new Date().getTime());
       document.getElementById('forcePop').classList.remove('active');
       document.getElementById('main-stage').classList.remove('locked');
     }
 
     function goTelegram() {
       verifyAccess();
-      window.open(TELEGRAM_POPUP_LINK, "_blank");
+      window.open(TELEGRAM_LINK, "_blank");
     }
 
     function shareLink() {
       if (navigator.share) {
-        navigator.share({ title: 'Mohit Vox', url: window.location.href }).catch(() => {});
+        navigator.share({ title: 'Cricket Yoddha', url: window.location.href }).catch(() => {});
       } else {
         navigator.clipboard.writeText(window.location.href);
         alert("Link copied to clipboard!");
       }
     }
 
-    // Loot Ad Video Loop Script
+    // Loot Ad Video 3-second delay loop script
     const lootVideo = document.getElementById('lootVideo');
     lootVideo.addEventListener('ended', function() {
         setTimeout(function() {
@@ -388,17 +387,18 @@
         }, 3000);
     });
 
-    // Modified Firebase Live Counter Setup
+    // Firebase Live Counter Setup
     const firebaseConfig = { apiKey: "AIzaSyA-vR50CMDYJVHApJir-6fmgRqhFiqQDU8", authDomain: "my-website-cricket.firebaseapp.com", databaseURL: "https://my-website-cricket-default-rtdb.firebaseio.com", projectId: "my-website-cricket" };
     if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
     
     const db = firebase.database();
     const today = new Date().toISOString().slice(0, 10);
     const params = new URLSearchParams(window.location.search);
-    const currentId = params.get("id") || "stream_node";
-    const dbRefName = "cs_analytics_node_" + currentId;
+    const currentId = params.get("id") || "default_channel";
+
+const dbRefName = "cricket_yoddha_" + currentId;
     
-    const ref = db.ref('stats_counters/' + dbRefName + '/' + today);
+    const ref = db.ref('live_users/' + dbRefName + '/' + today);
     ref.transaction(v => (v || 0) + 1);
     ref.on('value', snap => { 
       document.getElementById('live-count').innerText = "TODAY'S WATCHING - " + (snap.val() || 0).toLocaleString(); 
