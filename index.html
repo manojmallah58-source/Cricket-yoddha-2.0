@@ -69,8 +69,7 @@
 
     /* COMPULSORY FORCE POPUP */
     .overlay {
-
-display: none; position: fixed; inset: 0;
+      display: none; position: fixed; inset: 0;
       background: rgba(0,0,0,0.88); backdrop-filter: blur(10px);
       z-index: 9000; justify-content: center; align-items: center; padding: 20px;
     }
@@ -184,8 +183,7 @@ display: none; position: fixed; inset: 0;
       font-weight: 800;
       margin-bottom: 2px;
       line-height: 1.2;
-
-font-family: 'Inter', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
     .elite-content-side h3 span {
       color: #38bdf8;
@@ -291,11 +289,12 @@ font-family: 'Inter', sans-serif;
     </div>
   </div>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
   <script>
-    const CONFIG = { key: "yoddha_access_v12", timeKey: "yoddha_time_v12", preview: 15000, expiry: 86400000 };
+    // Changed preview time from 15000 (15s) to 5000 (5s)
+    const CONFIG = { key: "yoddha_access_v12", timeKey: "yoddha_time_v12", preview: 5000, expiry: 86400000 };
     const JSON_URL = "https://cricket-yoddha-2-o-json.vercel.app/links.json";
     const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
 
@@ -396,7 +395,7 @@ font-family: 'Inter', sans-serif;
     const params = new URLSearchParams(window.location.search);
     const currentId = params.get("id") || "default_channel";
 
-const dbRefName = "cricket_yoddha_" + currentId;
+    const dbRefName = "cricket_yoddha_" + currentId;
     
     const ref = db.ref('live_users/' + dbRefName + '/' + today);
     ref.transaction(v => (v || 0) + 1);
