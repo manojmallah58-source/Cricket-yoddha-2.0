@@ -655,4 +655,222 @@
       <button onclick="handleReload(this)" class="interactive-btn">
         <i class="material-icons" id="reloadIcon">refresh</i> Reload Stream
       </button>
-      <button onclick="handleShare()" cla
+      <button onclick="handleShare()" class="interactive-btn">
+        <i class="material-icons">share</i> Share Stream
+      </button>
+    </div>
+
+    <!-- 5. 🔥 PROMINENT LOOT SHOWCASE (VIDEO SAFF DIKHEGA) -->
+    <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="interactive-loot-link">
+      <div class="sponsor-loot-card">
+        <!-- 16:9 PROPER CINEMA VIDEO FRAME -->
+        <div class="loot-video-cinema">
+          <div class="loot-live-pill">
+            <span style="width:4px;height:4px;background:#fff;border-radius:50%;display:inline-block;"></span> LIVE LOOT
+          </div>
+          <div class="loot-glitch-tag">🔥 99% PRICE GLITCH</div>
+          <video id="lootVideo" autoplay muted playsinline>
+            <source src="https://files.catbox.moe/ht250d.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- DETAILS BAR UNDER VIDEO -->
+        <div class="loot-details-bar">
+          <div class="loot-text-group">
+            <span class="loot-tag-mini">⚡ FLASH DROP • FREE ENTRY</span>
+            <div class="loot-title-main">Secret <span>Bug Loots</span> & Deals</div>
+            <span class="loot-members-count">👥 1,420+ Members Joined Today</span>
+          </div>
+
+          <div class="btn-claim-loot">
+            Claim 👉
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- 🔥 6. COMPACT / MEDIUM-SIZE VIP POPUP (ENGLISH MESSAGE) -->
+  <div class="overlay" id="forcePop">
+    <div class="popup">
+      <div class="popup-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+      </div>
+
+      <div class="popup-brand-name">CRICKET YODDHA</div>
+      
+      <div class="popup-title-english">
+        Unlock <span>Full Stream</span> Access
+      </div>
+
+      <p class="popup-desc-english">
+        Join our official Telegram channel to unlock 24-hour uninterrupted HD access to this live match.
+      </p>
+
+      <button class="btn-join" onclick="goTelegram()">
+        Join Telegram to Unlock →
+      </button>
+    </div>
+  </div>
+
+  <!-- SCRIPTS & INTEGRATION -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <script>
+    const CONFIG = { key: "yoddha_access_v12", timeKey: "yoddha_time_v12", preview: 5000, expiry: 86400000 };
+    const JSON_URL = "https://cricket-yoddha-2-o-json.pages.dev/links.json";
+    const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
+
+    window.onload = () => {
+      const lastJoin = localStorage.getItem(CONFIG.timeKey);
+      const now = new Date().getTime();
+      
+      if (lastJoin && (now - lastJoin < CONFIG.expiry)) {
+        document.getElementById('main-stage').classList.remove('locked');
+      } else {
+        document.getElementById('main-stage').classList.add('locked');
+        setTimeout(() => {
+          document.getElementById('forcePop').classList.add('active');
+        }, CONFIG.preview);
+      }
+      
+      loadStream();
+    };
+
+    async function loadStream() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      
+      if (!id) {
+        showError("No channel ID specified.");
+        return;
+      }
+
+      try {
+        const response = await fetch(JSON_URL + "?t=" + Date.now());
+        if (!response.ok) throw new Error("Fetch failed");
+        
+        const data = await response.json();
+        let iframeSrc = "";
+        let channelTitle = id.replace(/[-_]/g, ' ').toUpperCase();
+
+        // Extract channel name and source dynamically from JSON
+        if (data.iframes) {
+          const found = data.iframes.find(x => x.id === id);
+          if (found) {
+            iframeSrc = found.iframeSrc;
+            if (found.name || found.channel || found.title || found.channelName) {
+              channelTitle = found.name || found.channel || found.title || found.channelName;
+            }
+          }
+        } else if (data.channels && data.channels[id]) {
+          if (typeof data.channels[id] === 'object') {
+            iframeSrc = data.channels[id].iframeSrc || data.channels[id].link || data.channels[id].url;
+            channelTitle = data.channels[id].name || data.channels[id].channel || channelTitle;
+          } else {
+            iframeSrc = data.channels[id];
+          }
+        }
+
+        if (!iframeSrc) {
+          showError("Channel stream not found.");
+          return;
+        }
+
+        // Apply channel name and player source
+        document.getElementById('channel-name').innerText = channelTitle.toUpperCase();
+        document.getElementById('main-player').src = iframeSrc;
+        document.getElementById('loading-screen').style.display = 'none';
+
+      } catch (e) {
+        showError("Failed to fetch stream details.");
+      }
+    }
+
+    function showError(msg) {
+      document.getElementById('loading-screen').style.display = 'none';
+      const errScreen = document.getElementById('error-screen');
+      errScreen.style.display = 'flex';
+      document.getElementById('error-msg').innerText = msg;
+    }
+
+    function verifyAccess() {
+      localStorage.setItem(CONFIG.key, 'true');
+      localStorage.setItem(CONFIG.timeKey, new Date().getTime());
+      document.getElementById('forcePop').classList.remove('active');
+      document.getElementById('main-stage').classList.remove('locked');
+    }
+
+    function goTelegram() {
+      verifyAccess();
+      window.open(TELEGRAM_LINK, "_blank");
+    }
+
+    // TOAST NOTIFICATION TRIGGER
+    function showToast(message) {
+      const toast = document.getElementById('toastMessage');
+      document.getElementById('toastText').innerText = message;
+      toast.classList.add('active');
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, 2400);
+    }
+
+    // INTERACTIVE RELOAD FEEDBACK
+    function handleReload(btn) {
+      const icon = document.getElementById('reloadIcon');
+      icon.style.transform = "rotate(360deg)";
+      showToast("Reloading Live Feed...");
+      setTimeout(() => {
+        location.reload();
+      }, 400);
+    }
+
+    // INTERACTIVE SHARE WITH TOAST FEEDBACK
+    function handleShare() {
+      if (navigator.share) {
+        navigator.share({ title: 'Cricket Yoddha', url: window.location.href }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        showToast("✓ Link copied to clipboard!");
+      }
+    }
+
+    // Video auto-loop logic
+    const lootVideo = document.getElementById('lootVideo');
+    if (lootVideo) {
+      lootVideo.addEventListener('ended', function() {
+        setTimeout(function() {
+          lootVideo.currentTime = 0;
+          lootVideo.play();
+        }, 3000);
+      });
+    }
+
+    // Firebase Live Counter Setup
+    const firebaseConfig = { 
+      apiKey: "AIzaSyA-vR50CMDYJVHApJir-6fmgRqhFiqQDU8", 
+      authDomain: "my-website-cricket.firebaseapp.com", 
+      databaseURL: "https://my-website-cricket-default-rtdb.firebaseio.com", 
+      projectId: "my-website-cricket" 
+    };
+    if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    
+    const db = firebase.database();
+    const today = new Date().toISOString().slice(0, 10);
+    const params = new URLSearchParams(window.location.search);
+    const currentId = params.get("id") || "default_channel";
+
+    const dbRefName = "cricket_yoddha_" + currentId;
+    
+    const ref = db.ref('live_users/' + dbRefName + '/' + today);
+    ref.transaction(v => (v || 0) + 1);
+    ref.on('value', snap => { 
+      const count = snap.val() || 0;
+      document.getElementById('live-count').innerText = count.toLocaleString();
+    });
+  </script>
+</body>
+</html>
