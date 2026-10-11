@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
-  <title>CRICKET YODDHA - VIP Cinema Live</title>
+  <title>CRICKET YODDHA - Official Live Room</title>
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&family=Chakra+Petch:wght@700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Bebas+Neue&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #07080e;
-      --card-bg: rgba(16, 20, 32, 0.85);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --neon-cyan: #00d2ff;
-      --laser-purple: #8b5cf6;
-      --solar-flame: #ff5e00;
-      --solar-gold: #ffb800;
-      --emerald: #00f59b;
-      --tg-blue: #0088cc;
+      --bg: #090a0f;
+      --surface: #12141c;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --accent-mint: #00f076;
+      --accent-tg: #229ed9;
+      --accent-flame: #ff5500;
+      --accent-amber: #ffb800;
+      --text-muted: #8e95a5;
     }
 
     * {
@@ -29,105 +28,80 @@
       padding: 0;
     }
 
-    /* FULL MOBILE SCREEN FIT - NO UNWANTED EMPTY GAPS */
-    html, body {
-      width: 100%;
-      min-height: 100dvh;
+    body {
       background: var(--bg);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.16) 0%, transparent 40%),
-        radial-gradient(circle at 100% 60%, rgba(0, 210, 255, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 0% 100%, rgba(255, 94, 0, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 50% 0%, rgba(34, 158, 217, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(0, 240, 118, 0.08) 0%, transparent 40%);
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #fff;
+      padding-bottom: 20px;
       overflow-x: hidden;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      user-select: none;
+      min-height: 100vh;
+      width: 100%;
     }
 
-    /* 1. CENTERED FROSTED LOGO HEADER */
+    /* 1. CENTERED SLEEK APP HEADER */
     header {
-      height: 50px;
-      min-height: 50px;
+      height: 52px;
+      background: rgba(9, 10, 15, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--surface-border);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(7, 8, 14, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--card-border);
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: 0 12px;
+      padding: 0 16px;
     }
-    .header-center-capsule {
+    .header-logo-container {
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
     }
     .logo-img {
-      height: 34px;
+      height: 36px;
       width: auto;
-      filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.45));
+      filter: drop-shadow(0 2px 10px rgba(34, 158, 217, 0.35));
     }
-    .live-top-badge {
+    .header-live-chip {
       position: absolute;
-      right: -58px;
+      right: -60px;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 30, 66, 0.15);
+      background: rgba(255, 30, 66, 0.12);
       border: 1px solid rgba(255, 30, 66, 0.5);
       color: #ff3355;
-      font-size: 8px;
-      font-weight: 900;
-      padding: 2px 5px;
+      font-size: 8.5px;
+      font-weight: 800;
+      padding: 2px 6px;
       border-radius: 4px;
-      letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       gap: 4px;
     }
-    .live-badge-dot {
-      width: 4px;
-      height: 4px;
+    .live-pulse-dot {
+      width: 5px;
+      height: 5px;
       background: #ff3355;
       border-radius: 50%;
       box-shadow: 0 0 6px #ff3355;
-      animation: pulseDot 1s infinite;
+      animation: pulse 1s infinite;
     }
-    @keyframes pulseDot {
+    @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.6); }
+      50% { opacity: 0.3; transform: scale(0.7); }
     }
 
-    /* 2. MAIN PLAYER WITH ANIMATED GLOWING LASER BEZEL */
-    .player-outer-wrap {
-      width: calc(100% - 14px);
-      margin: 8px auto 0 auto;
-      position: relative;
-      border-radius: 14px;
-      padding: 2px;
-      background: linear-gradient(60deg, var(--laser-purple), var(--neon-cyan), var(--solar-gold), var(--laser-purple));
-      background-size: 300% 300%;
-      animation: laserFlow 4s linear infinite;
-      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.35);
-      flex-shrink: 0;
-    }
-    @keyframes laserFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    /* 2. VIDEO STAGE (EDGE-TO-EDGE CINEMA FRAME) */
     #main-stage {
       width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #000;
       position: relative;
+      background: #000;
+      border-bottom: 1px solid var(--surface-border);
     }
     #main-stage.locked .video-box {
       pointer-events: none;
@@ -149,217 +123,176 @@
       left: 0;
     }
 
-    /* HUD CORNER TAG */
-    .player-hud-tag {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 8.5px;
-      font-weight: 800;
-      padding: 3px 7px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      z-index: 10;
-      pointer-events: none;
-    }
-    .hud-dot { width: 5px; height: 5px; background: #00f59b; border-radius: 50%; box-shadow: 0 0 6px #00f59b; }
-
-    /* 3. BROADCAST DYNAMIC CHANNEL TICKER */
-    .channel-strip {
-      width: calc(100% - 14px);
-      margin: 6px auto 0 auto;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 7px 12px;
+    /* 3. LIVE STREAM ROOM INFO STRIP */
+    .stream-room-meta {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 10px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-shrink: 0;
     }
-    .channel-left {
+    .stream-room-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      max-width: 62%;
+    }
+    .channel-header-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      max-width: 65%;
+      gap: 6px;
     }
-    .equalizer-wave {
-      display: flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 13px;
-    }
-    .eq-bar {
-      width: 2.5px;
-      background: var(--neon-cyan);
-      border-radius: 2px;
-    }
-    .eq-bar:nth-child(1) { animation: eq 0.6s infinite ease-in-out; }
-    .eq-bar:nth-child(2) { animation: eq 0.8s infinite ease-in-out 0.2s; }
-    .eq-bar:nth-child(3) { animation: eq 0.5s infinite ease-in-out 0.4s; }
-    @keyframes eq { 0%, 100% { height: 3px; } 50% { height: 13px; } }
-
-    .channel-title-text {
+    .channel-name-txt {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 800;
       color: #fff;
-      letter-spacing: 0.5px;
+      text-transform: uppercase;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      letter-spacing: 0.4px;
+    }
+    .verified-badge {
+      color: var(--accent-tg);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .stream-room-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-weight: 600;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .live-users-badge {
-      background: rgba(0, 245, 155, 0.1);
-      border: 1px solid rgba(0, 245, 155, 0.3);
-      padding: 3px 8px;
-      border-radius: 14px;
+    .stream-room-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-watcher-badge {
+      background: rgba(0, 240, 118, 0.08);
+      border: 1px solid rgba(0, 240, 118, 0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-mint);
       display: flex;
       align-items: center;
       gap: 5px;
-      font-family: 'Chakra Petch', sans-serif;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--emerald);
     }
-    .live-green-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--emerald);
+    .watcher-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-mint);
       border-radius: 50%;
-      box-shadow: 0 0 6px var(--emerald);
-      animation: pulseDot 1.2s infinite;
+      box-shadow: 0 0 8px var(--accent-mint);
+      animation: pulse 1.2s infinite;
     }
 
-    /* 4. STREAM TELEMETRY BAR (FILLS EMPTY SPACE PROFESSIONALLY) */
-    .stream-meta-grid {
-      width: calc(100% - 14px);
-      margin: 6px auto 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-    .meta-chip {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 6px 4px;
-      text-align: center;
+    /* 4. MAIN ACTION LAYOUT */
+    .room-actions-container {
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
-    }
-    .meta-chip-val {
-      font-size: 11px;
-      font-weight: 800;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-    .meta-chip-val i { font-size: 12px; color: var(--neon-cyan); }
-    .meta-chip-lbl {
-      font-size: 8.5px;
-      color: #94a3b8;
-      font-weight: 600;
-      text-transform: uppercase;
+      gap: 10px;
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    /* 5. APP INTERACTIVE DASHBOARD SECTION */
-    .app-dashboard {
-      width: calc(100% - 14px);
-      margin: 6px auto 10px auto;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      flex-grow: 1;
-    }
-
-    /* HIGH-CTR TELEGRAM FOLLOW CARD (SHIMMER ANIMATION) */
-    .btn-action-tg {
+    /* VIP TELEGRAM PASS (HIGH-CTR CONVERTING CARD) */
+    .vip-telegram-card {
+      background: linear-gradient(135deg, rgba(34, 158, 217, 0.18) 0%, rgba(18, 20, 28, 0.95) 100%);
+      border: 1px solid rgba(34, 158, 217, 0.35);
+      border-radius: 14px;
+      padding: 12px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      padding: 11px 14px;
-      background: linear-gradient(135deg, var(--tg-blue) 0%, #005f99 100%);
-      border: 1px solid rgba(0, 210, 255, 0.4);
-      border-radius: 12px;
-      color: #fff;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
       position: relative;
       overflow: hidden;
-      flex-shrink: 0;
+      cursor: pointer;
     }
-    .btn-action-tg::after {
+    .vip-telegram-card::after {
       content: '';
       position: absolute;
       top: -50%;
       left: -60%;
       width: 35%;
       height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
       transform: rotate(25deg);
-      animation: sweepLight 2.6s infinite;
+      animation: shimmerLight 3s infinite ease-in-out;
     }
-    @keyframes sweepLight {
+    @keyframes shimmerLight {
       0% { left: -60%; }
       50%, 100% { left: 140%; }
     }
-    .tg-content-left {
+    .vip-card-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
     }
-    .tg-icon-circle {
-      width: 32px;
-      height: 32px;
-      background: rgba(255, 255, 255, 0.18);
-      border-radius: 8px;
+    .vip-icon-wrap {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #229ed9, #1579a8);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 4px 12px rgba(34, 158, 217, 0.4);
     }
-    .tg-icon-circle svg { width: 18px; height: 18px; fill: #fff; }
-    .tg-text-box { display: flex; flex-direction: column; text-align: left; }
-    .tg-text-main {
-      font-size: 13px;
+    .vip-icon-wrap svg { width: 20px; height: 20px; fill: #fff; }
+    .vip-text-box {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .vip-text-title {
+      font-size: 13.5px;
       font-weight: 800;
+      color: #fff;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    .tg-text-sub {
-      font-size: 9.5px;
-      color: rgba(255, 255, 255, 0.8);
+    .vip-text-desc {
+      font-size: 10px;
+      color: #9cb1c9;
       font-weight: 600;
     }
-
-    /* QUICK ACTION CONTROLS */
-    .quick-controls-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
+    .btn-vip-pill {
+      background: var(--accent-tg);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(34, 158, 217, 0.45);
       flex-shrink: 0;
     }
-    .ctrl-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      color: #cbd5e1;
-      padding: 9px 12px;
-      border-radius: 9px;
+
+    /* QUICK APP CONTROL PILLS */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .pill-btn {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: #e2e8f0;
+      padding: 10px 12px;
+      border-radius: 10px;
       font-size: 12px;
       font-weight: 700;
       display: flex;
@@ -368,42 +301,42 @@
       gap: 6px;
       cursor: pointer;
     }
-    .ctrl-btn i { font-size: 15px; color: var(--neon-cyan); }
-    .ctrl-btn:active { background: rgba(255, 255, 255, 0.08); }
+    .pill-btn i { font-size: 16px; color: var(--accent-tg); }
+    .pill-btn:active { background: rgba(255, 255, 255, 0.08); }
 
-    /* 6. HIGH-CONVERTING VIP FLASH LOOT TERMINAL */
-    .loot-terminal-card {
-      background: linear-gradient(135deg, #171228 0%, #0c0918 100%);
-      border: 1.5px solid rgba(255, 184, 0, 0.4);
-      border-radius: 12px;
-      padding: 8px;
+    /* 5. OFFICIAL SPONSORED LOOT DROP (HIGH-CONVERSION FORMAT) */
+    .sponsor-loot-card {
+      background: linear-gradient(145deg, #161824 0%, #0d0f17 100%);
+      border: 1.5px solid rgba(255, 85, 0, 0.4);
+      border-radius: 14px;
+      padding: 10px;
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 184, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
       position: relative;
-      flex-shrink: 0;
     }
-    .loot-video-thumb {
-      width: 100px;
-      height: 64px;
+    .sponsor-video-side {
+      width: 108px;
+      height: 72px;
       flex-shrink: 0;
-      border-radius: 8px;
+      border-radius: 9px;
       overflow: hidden;
       position: relative;
       background: #000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
-    .loot-video-thumb video {
+    .sponsor-video-side video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .loot-deal-pill {
+    .sponsor-badge-tag {
       position: absolute;
       top: 3px;
       left: 3px;
-      background: #ff1e42;
+      background: var(--accent-flame);
       color: #fff;
       font-size: 7.5px;
       font-weight: 900;
@@ -411,41 +344,48 @@
       border-radius: 3px;
       letter-spacing: 0.5px;
     }
-    .loot-details-box {
+    .sponsor-content-side {
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex-grow: 1;
-      gap: 2px;
+      gap: 3px;
     }
-    .loot-heading {
-      font-size: 12px;
+    .sponsor-label-row {
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--accent-amber);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .sponsor-heading {
+      font-size: 12.5px;
       font-weight: 800;
       color: #fff;
       line-height: 1.25;
     }
-    .loot-heading span { color: var(--solar-gold); }
-    .loot-proof-line {
+    .sponsor-heading span { color: var(--accent-amber); }
+    .sponsor-social-line {
       font-size: 9.5px;
-      color: var(--emerald);
+      color: var(--accent-mint);
       font-weight: 700;
     }
-    .btn-loot-cta {
+    .btn-claim-loot {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--solar-gold) 0%, var(--solar-flame) 100%);
+      background: linear-gradient(135deg, var(--accent-amber) 0%, var(--accent-flame) 100%);
       color: #000;
       text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 6px;
+      padding: 7px 12px;
+      border-radius: 7px;
       font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       width: fit-content;
-      box-shadow: 0 3px 12px rgba(255, 94, 0, 0.4);
-      margin-top: 3px;
+      box-shadow: 0 3px 12px rgba(255, 85, 0, 0.4);
+      margin-top: 2px;
       animation: pulseBtn 2s infinite;
     }
     @keyframes pulseBtn {
@@ -453,17 +393,17 @@
       50% { transform: scale(1.03); }
     }
 
-    /* LOADING & ERROR SCREENS */
+    /* LOADING & ERROR OVERLAYS */
     #loading-screen {
       position: fixed; inset: 0; background: var(--bg);
       display: flex; align-items: center; justify-content: center;
       flex-direction: column; gap: 12px; z-index: 9999;
     }
-    .load-brand { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 4px; }
-    .load-brand span { color: var(--neon-cyan); }
+    .load-brand { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 4px; }
+    .load-brand span { color: var(--accent-tg); }
     .ring-spinner {
       width: 32px; height: 32px; border: 3px solid rgba(255,255,255,0.1);
-      border-top-color: var(--neon-cyan); border-radius: 50%;
+      border-top-color: var(--accent-tg); border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -473,9 +413,9 @@
       align-items: center; justify-content: center; flex-direction: column;
       gap: 12px; z-index: 9998; padding: 20px; text-align: center;
     }
-    #error-screen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #ff1e42; }
+    #error-screen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: #ff3355; }
 
-    /* MANDATORY POPUP */
+    /* MANDATORY ACCESS POPUP */
     .overlay {
       display: none; position: fixed; inset: 0;
       background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(12px);
@@ -483,22 +423,22 @@
     }
     .overlay.active { display: flex; }
     .popup {
-      background: linear-gradient(165deg, #14172a 0%, #090c16 100%);
-      border: 1px solid rgba(0, 210, 255, 0.4); border-radius: 18px;
-      padding: 22px 18px; width: 100%; max-width: 340px; text-align: center;
+      background: linear-gradient(165deg, #141724 0%, #0c0e17 100%);
+      border: 1px solid rgba(34, 158, 217, 0.4); border-radius: 18px;
+      padding: 24px 18px; width: 100%; max-width: 340px; text-align: center;
       box-shadow: 0 25px 70px rgba(0,0,0,0.9);
     }
     .popup-icon {
-      width: 48px; height: 48px; background: linear-gradient(135deg, #0088cc, #005f99);
+      width: 48px; height: 48px; background: linear-gradient(135deg, #229ed9, #1579a8);
       border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 12px; box-shadow: 0 6px 18px rgba(0, 136, 204, 0.4);
+      margin: 0 auto 12px; box-shadow: 0 6px 18px rgba(34, 158, 217, 0.4);
     }
     .popup-icon svg { width: 24px; height: 24px; fill: #fff; }
-    .popup-brand-name { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; color: #fff; }
-    .popup p { color: #94a3b8; font-size: 12px; line-height: 1.5; margin: 8px 0 16px; }
+    .popup-brand-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: #fff; }
+    .popup p { color: #94a3b8; font-size: 12.5px; line-height: 1.5; margin: 8px 0 16px; }
     .btn-join {
-      width: 100%; padding: 12px; background: linear-gradient(135deg, #0088cc, #005f99);
-      border: none; color: #fff; border-radius: 8px; font-size: 13px; font-weight: 800;
+      width: 100%; padding: 12px; background: linear-gradient(135deg, #229ed9, #1579a8);
+      border: none; color: #fff; border-radius: 8px; font-size: 13.5px; font-weight: 800;
       cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
     }
   </style>
@@ -509,113 +449,94 @@
   <div id="loading-screen">
     <div class="load-brand">CRICKET <span>YODDHA</span></div>
     <div class="ring-spinner"></div>
-    <p style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #64748b;">Loading Live Feed...</p>
+    <p style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #64748b;">Connecting Live Room...</p>
   </div>
 
   <!-- ERROR OVERLAY -->
   <div id="error-screen">
     <h2>STREAM OFFLINE</h2>
-    <p id="error-msg" style="color: #94a3b8; font-size: 13px;">Match channel is not transmitting.</p>
-    <a href="javascript:location.reload()" class="btn-loot-cta" style="margin-top: 8px;">RELOAD MATCH</a>
+    <p id="error-msg" style="color: #94a3b8; font-size: 13px;">This stream channel is not transmitting.</p>
+    <a href="javascript:location.reload()" class="btn-claim-loot" style="margin-top: 8px;">RELOAD STREAM</a>
   </div>
 
-  <!-- 1. CENTERED LOGO HEADER -->
+  <!-- 1. CENTERED SLEEK APP HEADER -->
   <header>
-    <div class="header-center-capsule">
+    <div class="header-logo-container">
       <img src="https://i.ibb.co/HLkW7zJV/ei-1765534270242-removebg-preview.png" alt="Cricket Yoddha" class="logo-img">
-      <div class="live-top-badge">
-        <div class="live-badge-dot"></div> 4K LIVE
+      <div class="header-live-chip">
+        <div class="live-pulse-dot"></div> LIVE
       </div>
     </div>
   </header>
 
-  <!-- 2. ANIMATED GLOWING LASER VIDEO STAGE -->
-  <div class="player-outer-wrap">
-    <div id="main-stage">
-      <div class="video-box">
-        <div class="player-hud-tag">
-          <div class="hud-dot"></div> ULTRA LOW LATENCY • 60 FPS
-        </div>
-        <iframe id="main-player" allowfullscreen="true" scrolling="no" allow="autoplay; encrypted-media"></iframe>
+  <!-- 2. MAIN PLAYER (EDGE-TO-EDGE CINEMA FRAME) -->
+  <div id="main-stage">
+    <div class="video-box">
+      <iframe id="main-player" allowfullscreen="true" scrolling="no" allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+
+  <!-- 3. LIVE STREAM ROOM INFO STRIP (DYNAMIC VIA JSON) -->
+  <div class="stream-room-meta">
+    <div class="stream-room-left">
+      <div class="channel-header-row">
+        <!-- DYNAMIC CHANNEL NAME INSERTED HERE -->
+        <span class="channel-name-txt" id="channel-name">LIVE BROADCAST</span>
+        <span class="verified-badge"><i class="material-icons" style="font-size: 15px;">verified</i></span>
+      </div>
+      <div class="stream-room-sub">Official HD Broadcast Room</div>
+    </div>
+    
+    <div class="stream-room-right">
+      <div class="live-watcher-badge">
+        <div class="watcher-dot"></div>
+        <span id="live-count">0</span> LIVE
       </div>
     </div>
   </div>
 
-  <!-- 3. BROADCAST DYNAMIC CHANNEL STRIP (FROM JSON) -->
-  <div class="channel-strip">
-    <div class="channel-left">
-      <div class="equalizer-wave">
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-      </div>
-      <!-- DYNAMIC CHANNEL NAME INSERTED HERE -->
-      <div class="channel-title-text" id="channel-name">LIVE BROADCAST</div>
-    </div>
+  <!-- 4. MAIN ACTION LAYOUT -->
+  <div class="room-actions-container">
     
-    <div class="live-users-badge">
-      <div class="live-green-dot"></div>
-      <span id="live-count">0</span> LIVE
-    </div>
-  </div>
-
-  <!-- 4. STREAM TELEMETRY INFO (FILLS EMPTY SPACE PROFESSIONALLY) -->
-  <div class="stream-meta-grid">
-    <div class="meta-chip">
-      <div class="meta-chip-val"><i class="material-icons">speed</i> 14ms</div>
-      <div class="meta-chip-lbl">Buffer Ping</div>
-    </div>
-    <div class="meta-chip">
-      <div class="meta-chip-val"><i class="material-icons">hd</i> 1080p 60</div>
-      <div class="meta-chip-lbl">Resolution</div>
-    </div>
-    <div class="meta-chip">
-      <div class="meta-chip-val"><i class="material-icons">volume_up</i> Multi-Audio</div>
-      <div class="meta-chip-lbl">Sound Feed</div>
-    </div>
-  </div>
-
-  <!-- 5. APP INTERACTIVE DASHBOARD SECTION -->
-  <div class="app-dashboard">
-    
-    <!-- HIGH-CTR TELEGRAM FOLLOW BUTTON -->
-    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="btn-action-tg">
-      <div class="tg-content-left">
-        <div class="tg-icon-circle">
+    <!-- HIGH-CTR TELEGRAM VIP ACCESS CARD -->
+    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="vip-telegram-card">
+      <div class="vip-card-left">
+        <div class="vip-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
         </div>
-        <div class="tg-text-box">
-          <div class="tg-text-main">Join Official Telegram</div>
-          <div class="tg-text-sub">Instant backup links & live ball-by-ball updates</div>
+        <div class="vip-text-box">
+          <div class="vip-text-title">Join Official Telegram</div>
+          <div class="vip-text-desc">Backup streams & continuous live access pass</div>
         </div>
       </div>
-      <i class="material-icons" style="font-size: 19px; color: rgba(255,255,255,0.7);">chevron_right</i>
+      <div class="btn-vip-pill">JOIN FREE</div>
     </a>
 
-    <!-- QUICK UTILITY CONTROLS -->
-    <div class="quick-controls-grid">
-      <button onclick="location.reload()" class="ctrl-btn">
-        <i class="material-icons">refresh</i> Reload Stream
+    <!-- QUICK CONTROLS -->
+    <div class="controls-grid">
+      <button onclick="location.reload()" class="pill-btn">
+        <i class="material-icons">refresh</i> Reload Player
       </button>
-      <button onclick="shareLink()" class="ctrl-btn">
-        <i class="material-icons">share</i> Share Match
+      <button onclick="shareLink()" class="pill-btn">
+        <i class="material-icons">share</i> Share Stream
       </button>
     </div>
 
-    <!-- 6. HIGH-CONVERTING FLASH LOOT CARD -->
-    <div class="loot-terminal-card">
-      <div class="loot-video-thumb">
-        <div class="loot-deal-pill">90% OFF</div>
+    <!-- 5. VERIFIED PARTNER LOOT DROP (HIGH CONVERSION) -->
+    <div class="sponsor-loot-card">
+      <div class="sponsor-video-side">
+        <div class="sponsor-badge-tag">90% OFF</div>
         <video id="lootVideo" autoplay muted playsinline>
           <source src="https://files.catbox.moe/ht250d.mp4" type="video/mp4">
         </video>
       </div>
 
-      <div class="loot-details-box">
-        <div class="loot-heading">Secret <span>Bug Loots</span> & Deals!</div>
-        <div class="loot-proof-line">⚡ 1,420+ Joined Today • 100% Free</div>
-        <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="btn-loot-cta">
-          Join Loot Channel →
+      <div class="sponsor-content-side">
+        <div class="sponsor-label-row">⚡ SECRET PRICE BUGS • LIVE DROP</div>
+        <div class="sponsor-heading">Exclusive <span>Bug Loot Deals</span> & Codes!</div>
+        <div class="sponsor-social-line">👥 1,420+ Members Joined Today (100% Free)</div>
+        <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="btn-claim-loot">
+          Claim Loot (Free) →
         </a>
       </div>
     </div>
@@ -634,7 +555,7 @@
     </div>
   </div>
 
-  <!-- FIREBASE & CORE SCRIPT LOGIC -->
+  <!-- SCRIPTS & FIREBASE INTEGRATION -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
@@ -676,7 +597,7 @@
         let iframeSrc = "";
         let channelTitle = id.replace(/[-_]/g, ' ').toUpperCase();
 
-        // Extract dynamic channel name and source from JSON
+        // Extract channel name and source dynamically from JSON
         if (data.iframes) {
           const found = data.iframes.find(x => x.id === id);
           if (found) {
@@ -699,7 +620,7 @@
           return;
         }
 
-        // Apply dynamic channel name and player URL
+        // Apply channel name and player source
         document.getElementById('channel-name').innerText = channelTitle.toUpperCase();
         document.getElementById('main-player').src = iframeSrc;
         document.getElementById('loading-screen').style.display = 'none';
