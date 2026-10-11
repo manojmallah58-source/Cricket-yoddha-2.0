@@ -96,9 +96,9 @@
       box-shadow: 0 4px 16px rgba(0,136,204,0.4); text-transform: uppercase; letter-spacing: 0.5px;
     }
 
-    /* PERFECT FIXED AD BANNER */
+    /* 🔥 NEW PROFESSIONAL REDESIGNED ELITE AD / LOOT BANNER */
     .ad-section-wrapper {
-      margin-top: 10px;
+      margin-top: 14px;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -106,23 +106,29 @@
     .elite-ad-banner {
       width: 100%;
       max-width: 100%;
-      background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
-      border-radius: 8px;
+      background: linear-gradient(145deg, #0d1117 0%, #010409 100%);
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7), 0 0 15px rgba(16, 185, 129, 0.2);
-      border: 1.5px solid rgba(16, 185, 129, 0.4);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.25);
+      border: 1.5px solid rgba(245, 158, 11, 0.5);
       display: flex;
       flex-direction: column;
       position: relative;
+      animation: bannerGlow 3s infinite alternate;
     }
+    @keyframes bannerGlow {
+      0% { border-color: rgba(245, 158, 11, 0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.8), 0 0 10px rgba(245, 158, 11, 0.15); }
+      100% { border-color: rgba(245, 158, 11, 0.8); box-shadow: 0 8px 28px rgba(0,0,0,0.8), 0 0 22px rgba(245, 158, 11, 0.4); }
+    }
+
     .elite-video-side {
       width: 100%;
-      max-height: 140px;
+      max-height: 150px;
       aspect-ratio: 16/9;
       background: #000;
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -130,89 +136,119 @@
     .elite-video-side video {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       background: #000;
       display: block;
     }
     .live-badge {
       position: absolute;
-      top: 5px;
-      left: 5px;
-      background: #dc2626;
+      top: 8px;
+      left: 8px;
+      background: rgba(220, 38, 38, 0.9);
       color: #ffffff;
-      font-size: 7px;
+      font-size: 8px;
       font-weight: 900;
-      padding: 1.5px 4px;
-      border-radius: 2px;
-      letter-spacing: 0.5px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.8px;
       display: flex;
       align-items: center;
-      gap: 2px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      gap: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
       z-index: 2;
     }
     .pulsing-dot {
-      width: 4px;
-      height: 4px;
+      width: 5px;
+      height: 5px;
       background: #fff;
       border-radius: 50%;
       animation: dotBlink 0.8s infinite;
     }
     @keyframes dotBlink {
       0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 0.3; transform: scale(0.7); }
       100% { opacity: 1; transform: scale(1); }
     }
+    .video-overlay-tag {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      color: #f59e0b;
+      font-size: 8px;
+      font-weight: 800;
+      padding: 3px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      z-index: 2;
+      letter-spacing: 0.5px;
+    }
+
     .elite-content-side {
       width: 100%;
-      padding: 8px 10px;
+      padding: 12px 14px;
       text-align: center;
     }
     .sub-tag {
       color: #f59e0b;
-      font-size: 7.5px;
+      font-size: 9px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 2px;
+      letter-spacing: 0.8px;
+      margin-bottom: 3px;
       display: block;
     }
     .elite-content-side h3 {
       color: #ffffff;
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 800;
-      margin-bottom: 2px;
-      line-height: 1.2;
+      margin-bottom: 4px;
+      line-height: 1.3;
       font-family: 'Inter', sans-serif;
     }
     .elite-content-side h3 span {
-      color: #38bdf8;
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      background: linear-gradient(90deg, #f59e0b, #ef4444);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .description {
       color: #94a3b8;
-      font-size: 9px;
-      margin-bottom: 6px;
-      line-height: 1.2;
+      font-size: 10px;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .social-proof-text {
+      font-size: 9.5px;
+      color: #10b981;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 3px;
+      border-radius: 4px;
+      border: 1px dashed rgba(16, 185, 129, 0.3);
     }
     .elite-cta-button {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 6px;
       width: 100%;
-      background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #000;
       text-decoration: none;
-      padding: 7px 10px;
-      border-radius: 4px;
-      font-size: 10px;
-      font-weight: 800;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.4px;
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+      letter-spacing: 0.6px;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
+      animation: buttonBounce 2s infinite;
+    }
+    @keyframes buttonBounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-3px); }
+      60% { transform: translateY(-1.5px); }
     }
   </style>
 </head>
@@ -250,13 +286,15 @@
     </div>
     <div class="stats" id="live-count">TODAY'S WATCHING - ...</div>
 
-    <!-- PERFECT FIXED AD BANNER -->
+    <!-- 🔥 PROFESSIONAL REDESIGNED ELITE AD BANNER -->
     <div class="ad-section-wrapper">
       <div class="elite-ad-banner">
         <div class="elite-video-side">
           <div class="live-badge">
-            <div class="pulsing-dot"></div> LIVE
+            <div class="pulsing-dot"></div> LIVE LOOT
           </div>
+          <div class="video-overlay-tag">🔥 90% OFF DEALS</div>
+          
           <video id="lootVideo" autoplay muted playsinline>
             <source src="https://files.catbox.moe/ht250d.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -264,12 +302,14 @@
         </div>
 
         <div class="elite-content-side">
-          <span class="sub-tag">⚡ FLASH SALE • 90% OFF</span>
-          <h3>Grab Secret <span>Loot Deals</span> Now!</h3>
-          <p class="description">Hidden price drops & bug offers active right now.</p>
+          <span class="sub-tag">⚡ EXCLUSIVE FLASH SALE • LIMITED TIME</span>
+          <h3>Grab Secret <span>Loot Deals</span> & Bug Offers!</h3>
+          <p class="description">Hidden price drops, loot codes & loot items updated live.</p>
+          
+          <div class="social-proof-text">👥 1,420+ Members joined in last 24 hours</div>
           
           <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="elite-cta-button">
-            👉 Click Here To Join Now
+            👉 Join Loot Channel Now (Free)
           </a>
         </div>
       </div>
@@ -293,7 +333,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
   <script>
-    // Changed preview time from 15000 (15s) to 5000 (5s)
     const CONFIG = { key: "yoddha_access_v12", timeKey: "yoddha_time_v12", preview: 5000, expiry: 86400000 };
     const JSON_URL = "https://cricket-yoddha-2-o-json.pages.dev/links.json";
     const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
@@ -377,7 +416,7 @@
       }
     }
 
-    // Loot Ad Video 3-second delay loop script
+    // Loot Ad Video loop script
     const lootVideo = document.getElementById('lootVideo');
     lootVideo.addEventListener('ended', function() {
         setTimeout(function() {
