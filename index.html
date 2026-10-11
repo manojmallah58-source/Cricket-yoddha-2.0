@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
-  <title>CRICKET YODDHA - Official Live Room</title>
+  <title>CRICKET YODDHA - VIP Cinema Live</title>
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Bebas+Neue&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Space+Grotesk:wght@700;800&family=Bebas+Neue&family=Chakra+Petch:wght@700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #090a0f;
-      --surface: #12141c;
-      --surface-border: rgba(255, 255, 255, 0.08);
+      --bg: #080a12;
+      --surface: #121624;
+      --surface-border: rgba(255, 255, 255, 0.09);
+      --accent-cyan: #00a8ff;
+      --accent-cyan-glow: rgba(0, 168, 255, 0.35);
       --accent-mint: #00f076;
-      --accent-tg: #229ed9;
       --accent-flame: #ff5500;
-      --accent-amber: #ffb800;
-      --text-muted: #8e95a5;
+      --accent-gold: #ffb800;
+      --text-muted: #8c96a8;
     }
 
     * {
@@ -31,20 +32,21 @@
     body {
       background: var(--bg);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(34, 158, 217, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(0, 240, 118, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 50% 0%, rgba(0, 168, 255, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 100% 60%, rgba(0, 240, 118, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(255, 85, 0, 0.08) 0%, transparent 40%);
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #fff;
-      padding-bottom: 20px;
+      padding-bottom: 25px;
       overflow-x: hidden;
       min-height: 100vh;
       width: 100%;
     }
 
-    /* 1. CENTERED SLEEK APP HEADER */
+    /* 1. CENTERED SLEEK HEADER */
     header {
       height: 52px;
-      background: rgba(9, 10, 15, 0.88);
+      background: rgba(8, 10, 18, 0.9);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--surface-border);
@@ -56,7 +58,7 @@
       z-index: 1000;
       padding: 0 16px;
     }
-    .header-logo-container {
+    .header-logo-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -65,14 +67,14 @@
     .logo-img {
       height: 36px;
       width: auto;
-      filter: drop-shadow(0 2px 10px rgba(34, 158, 217, 0.35));
+      filter: drop-shadow(0 2px 10px rgba(0, 168, 255, 0.4));
     }
     .header-live-chip {
       position: absolute;
       right: -60px;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 30, 66, 0.12);
+      background: rgba(255, 30, 66, 0.15);
       border: 1px solid rgba(255, 30, 66, 0.5);
       color: #ff3355;
       font-size: 8.5px;
@@ -96,7 +98,7 @@
       50% { opacity: 0.3; transform: scale(0.7); }
     }
 
-    /* 2. VIDEO STAGE (EDGE-TO-EDGE CINEMA FRAME) */
+    /* 2. VIDEO STAGE */
     #main-stage {
       width: 100%;
       position: relative;
@@ -123,7 +125,7 @@
       left: 0;
     }
 
-    /* 3. LIVE STREAM ROOM INFO STRIP */
+    /* 3. DYNAMIC CHANNEL STRIP */
     .stream-room-meta {
       background: var(--surface);
       border-bottom: 1px solid var(--surface-border);
@@ -136,7 +138,7 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
-      max-width: 62%;
+      max-width: 65%;
     }
     .channel-header-row {
       display: flex;
@@ -155,15 +157,15 @@
       letter-spacing: 0.4px;
     }
     .verified-badge {
-      color: var(--accent-tg);
+      color: var(--accent-cyan);
       font-size: 15px;
       display: flex;
       align-items: center;
     }
     .stream-room-sub {
-      font-size: 10px;
+      font-size: 9.5px;
       color: var(--text-muted);
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -178,7 +180,8 @@
       border: 1px solid rgba(0, 240, 118, 0.25);
       padding: 4px 10px;
       border-radius: 20px;
-      font-size: 11px;
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 11.5px;
       font-weight: 800;
       color: var(--accent-mint);
       display: flex;
@@ -194,7 +197,7 @@
       animation: pulse 1.2s infinite;
     }
 
-    /* 4. MAIN ACTION LAYOUT */
+    /* 4. ACTIONS CONTAINER */
     .room-actions-container {
       padding: 12px 14px;
       display: flex;
@@ -205,52 +208,64 @@
       width: 100%;
     }
 
-    /* VIP TELEGRAM PASS (HIGH-CTR CONVERTING CARD) */
-    .vip-telegram-card {
-      background: linear-gradient(135deg, rgba(34, 158, 217, 0.18) 0%, rgba(18, 20, 28, 0.95) 100%);
-      border: 1px solid rgba(34, 158, 217, 0.35);
-      border-radius: 14px;
-      padding: 12px 14px;
+    /* 🔥 HIGH-CONVERTING ANIMATED TELEGRAM BUTTON */
+    .vip-telegram-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      width: 100%;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #0088cc 0%, #005f99 100%);
+      border: 1.5px solid rgba(0, 168, 255, 0.5);
+      border-radius: 14px;
+      color: #fff;
       text-decoration: none;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      cursor: pointer;
       position: relative;
       overflow: hidden;
-      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      animation: breathingGlow 3s infinite alternate;
     }
-    .vip-telegram-card::after {
+    @keyframes breathingGlow {
+      0% { box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4); border-color: rgba(0, 168, 255, 0.4); }
+      100% { box-shadow: 0 8px 28px rgba(0, 168, 255, 0.65); border-color: rgba(0, 210, 255, 0.8); }
+    }
+    .vip-telegram-btn:active {
+      transform: scale(0.96);
+      box-shadow: 0 2px 10px rgba(0, 136, 204, 0.4);
+    }
+    .vip-telegram-btn::after {
       content: '';
       position: absolute;
       top: -50%;
       left: -60%;
       width: 35%;
       height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
       transform: rotate(25deg);
-      animation: shimmerLight 3s infinite ease-in-out;
+      animation: sweepLight 2.8s infinite ease-in-out;
     }
-    @keyframes shimmerLight {
+    @keyframes sweepLight {
       0% { left: -60%; }
       50%, 100% { left: 140%; }
     }
     .vip-card-left {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 12px;
     }
     .vip-icon-wrap {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, #229ed9, #1579a8);
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.2);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(34, 158, 217, 0.4);
+      flex-shrink: 0;
     }
-    .vip-icon-wrap svg { width: 20px; height: 20px; fill: #fff; }
+    .vip-icon-wrap svg { width: 22px; height: 22px; fill: #fff; }
     .vip-text-box {
       display: flex;
       flex-direction: column;
@@ -259,26 +274,29 @@
     .vip-text-title {
       font-size: 13.5px;
       font-weight: 800;
-      color: #fff;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      line-height: 1.2;
     }
     .vip-text-desc {
       font-size: 10px;
-      color: #9cb1c9;
+      color: rgba(255, 255, 255, 0.85);
       font-weight: 600;
     }
-    .btn-vip-pill {
-      background: var(--accent-tg);
-      color: #fff;
-      font-size: 10.5px;
-      font-weight: 800;
+    .btn-tap-pill {
+      background: #fff;
+      color: #0088cc;
+      font-size: 11px;
+      font-weight: 900;
       padding: 6px 12px;
       border-radius: 8px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      box-shadow: 0 2px 10px rgba(34, 158, 217, 0.45);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 3px;
     }
 
     /* QUICK APP CONTROL PILLS */
@@ -287,11 +305,11 @@
       grid-template-columns: 1fr 1fr;
       gap: 8px;
     }
-    .pill-btn {
+    .interactive-btn {
       background: var(--surface);
       border: 1px solid var(--surface-border);
       color: #e2e8f0;
-      padding: 10px 12px;
+      padding: 10px 14px;
       border-radius: 10px;
       font-size: 12px;
       font-weight: 700;
@@ -300,21 +318,36 @@
       justify-content: center;
       gap: 6px;
       cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-    .pill-btn i { font-size: 16px; color: var(--accent-tg); }
-    .pill-btn:active { background: rgba(255, 255, 255, 0.08); }
+    .interactive-btn i { font-size: 16px; color: var(--accent-cyan); transition: transform 0.3s; }
+    .interactive-btn:active {
+      transform: scale(0.96);
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-    /* 5. OFFICIAL SPONSORED LOOT DROP (HIGH-CONVERSION FORMAT) */
+    /* 🔥 INTERACTIVE SPONSORED LOOT CARD (ENTIRE CARD CLICKABLE) */
+    .interactive-loot-link {
+      text-decoration: none;
+      display: block;
+      border-radius: 14px;
+      transition: transform 0.15s ease;
+    }
+    .interactive-loot-link:active {
+      transform: scale(0.97);
+    }
     .sponsor-loot-card {
-      background: linear-gradient(145deg, #161824 0%, #0d0f17 100%);
-      border: 1.5px solid rgba(255, 85, 0, 0.4);
+      background: linear-gradient(145deg, #181b2a 0%, #0d0f18 100%);
+      border: 1.5px solid rgba(255, 184, 0, 0.45);
       border-radius: 14px;
       padding: 10px;
       display: flex;
       gap: 12px;
       align-items: center;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.65), 0 0 15px rgba(255, 184, 0, 0.12);
       position: relative;
+      cursor: pointer;
     }
     .sponsor-video-side {
       width: 108px;
@@ -324,7 +357,7 @@
       overflow: hidden;
       position: relative;
       background: #000;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
     .sponsor-video-side video {
       width: 100%;
@@ -354,7 +387,7 @@
     .sponsor-label-row {
       font-size: 9px;
       font-weight: 800;
-      color: var(--accent-amber);
+      color: var(--accent-gold);
       letter-spacing: 0.8px;
       text-transform: uppercase;
     }
@@ -364,7 +397,7 @@
       color: #fff;
       line-height: 1.25;
     }
-    .sponsor-heading span { color: var(--accent-amber); }
+    .sponsor-heading span { color: var(--accent-gold); }
     .sponsor-social-line {
       font-size: 9.5px;
       color: var(--accent-mint);
@@ -374,9 +407,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--accent-amber) 0%, var(--accent-flame) 100%);
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-flame) 100%);
       color: #000;
-      text-decoration: none;
       padding: 7px 12px;
       border-radius: 7px;
       font-size: 11px;
@@ -384,26 +416,55 @@
       text-transform: uppercase;
       letter-spacing: 0.6px;
       width: fit-content;
-      box-shadow: 0 3px 12px rgba(255, 85, 0, 0.4);
+      box-shadow: 0 3px 12px rgba(255, 85, 0, 0.45);
       margin-top: 2px;
-      animation: pulseBtn 2s infinite;
+      animation: pulseBtn 1.8s infinite;
     }
     @keyframes pulseBtn {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
+      50% { transform: scale(1.04); }
     }
 
-    /* LOADING & ERROR OVERLAYS */
+    /* IN-APP TOAST NOTIFICATION */
+    .app-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: rgba(18, 22, 36, 0.95);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--accent-mint);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      z-index: 99999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+    }
+    .app-toast.active {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    .toast-icon { color: var(--accent-mint); font-size: 16px; }
+
+    /* LOADING & ERROR SCREENS */
     #loading-screen {
       position: fixed; inset: 0; background: var(--bg);
       display: flex; align-items: center; justify-content: center;
       flex-direction: column; gap: 12px; z-index: 9999;
     }
     .load-brand { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 4px; }
-    .load-brand span { color: var(--accent-tg); }
+    .load-brand span { color: var(--accent-cyan); }
     .ring-spinner {
       width: 32px; height: 32px; border: 3px solid rgba(255,255,255,0.1);
-      border-top-color: var(--accent-tg); border-radius: 50%;
+      border-top-color: var(--accent-cyan); border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -415,7 +476,7 @@
     }
     #error-screen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: #ff3355; }
 
-    /* MANDATORY ACCESS POPUP */
+    /* MANDATORY POPUP */
     .overlay {
       display: none; position: fixed; inset: 0;
       background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(12px);
@@ -424,26 +485,32 @@
     .overlay.active { display: flex; }
     .popup {
       background: linear-gradient(165deg, #141724 0%, #0c0e17 100%);
-      border: 1px solid rgba(34, 158, 217, 0.4); border-radius: 18px;
+      border: 1px solid rgba(0, 168, 255, 0.4); border-radius: 18px;
       padding: 24px 18px; width: 100%; max-width: 340px; text-align: center;
       box-shadow: 0 25px 70px rgba(0,0,0,0.9);
     }
     .popup-icon {
-      width: 48px; height: 48px; background: linear-gradient(135deg, #229ed9, #1579a8);
+      width: 48px; height: 48px; background: linear-gradient(135deg, #0088cc, #005f99);
       border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 12px; box-shadow: 0 6px 18px rgba(34, 158, 217, 0.4);
+      margin: 0 auto 12px; box-shadow: 0 6px 18px rgba(0, 136, 204, 0.4);
     }
     .popup-icon svg { width: 24px; height: 24px; fill: #fff; }
     .popup-brand-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: #fff; }
     .popup p { color: #94a3b8; font-size: 12.5px; line-height: 1.5; margin: 8px 0 16px; }
     .btn-join {
-      width: 100%; padding: 12px; background: linear-gradient(135deg, #229ed9, #1579a8);
+      width: 100%; padding: 12px; background: linear-gradient(135deg, #0088cc, #005f99);
       border: none; color: #fff; border-radius: 8px; font-size: 13.5px; font-weight: 800;
       cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
     }
   </style>
 </head>
 <body>
+
+  <!-- IN-APP TOAST MESSAGE POPUP -->
+  <div id="toastMessage" class="app-toast">
+    <i class="material-icons toast-icon">check_circle</i>
+    <span id="toastText">Link copied to clipboard!</span>
+  </div>
 
   <!-- LOADING OVERLAY -->
   <div id="loading-screen">
@@ -459,9 +526,9 @@
     <a href="javascript:location.reload()" class="btn-claim-loot" style="margin-top: 8px;">RELOAD STREAM</a>
   </div>
 
-  <!-- 1. CENTERED SLEEK APP HEADER -->
+  <!-- 1. CENTERED SLEEK HEADER -->
   <header>
-    <div class="header-logo-container">
+    <div class="header-logo-wrap">
       <img src="https://i.ibb.co/HLkW7zJV/ei-1765534270242-removebg-preview.png" alt="Cricket Yoddha" class="logo-img">
       <div class="header-live-chip">
         <div class="live-pulse-dot"></div> LIVE
@@ -469,7 +536,7 @@
     </div>
   </header>
 
-  <!-- 2. MAIN PLAYER (EDGE-TO-EDGE CINEMA FRAME) -->
+  <!-- 2. MAIN PLAYER -->
   <div id="main-stage">
     <div class="video-box">
       <iframe id="main-player" allowfullscreen="true" scrolling="no" allow="autoplay; encrypted-media"></iframe>
@@ -495,55 +562,57 @@
     </div>
   </div>
 
-  <!-- 4. MAIN ACTION LAYOUT -->
+  <!-- 4. ACTION LAYOUT WITH TACTILE BUTTONS -->
   <div class="room-actions-container">
     
-    <!-- HIGH-CTR TELEGRAM VIP ACCESS CARD -->
-    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="vip-telegram-card">
+    <!-- HIGH-CTR ANIMATED TELEGRAM BUTTON (CLEAR CLICK INDICATION) -->
+    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="vip-telegram-btn">
       <div class="vip-card-left">
         <div class="vip-icon-wrap">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
         </div>
         <div class="vip-text-box">
           <div class="vip-text-title">Join Official Telegram</div>
-          <div class="vip-text-desc">Backup streams & continuous live access pass</div>
+          <div class="vip-text-desc">Backup stream links & continuous match access pass</div>
         </div>
       </div>
-      <div class="btn-vip-pill">JOIN FREE</div>
+      <div class="btn-tap-pill">TAP HERE 👉</div>
     </a>
 
-    <!-- QUICK CONTROLS -->
+    <!-- QUICK UTILITY CONTROLS WITH REAL FEEDBACK -->
     <div class="controls-grid">
-      <button onclick="location.reload()" class="pill-btn">
-        <i class="material-icons">refresh</i> Reload Player
+      <button onclick="handleReload(this)" class="interactive-btn">
+        <i class="material-icons" id="reloadIcon">refresh</i> Reload Stream
       </button>
-      <button onclick="shareLink()" class="pill-btn">
+      <button onclick="handleShare()" class="interactive-btn">
         <i class="material-icons">share</i> Share Stream
       </button>
     </div>
 
-    <!-- 5. VERIFIED PARTNER LOOT DROP (HIGH CONVERSION) -->
-    <div class="sponsor-loot-card">
-      <div class="sponsor-video-side">
-        <div class="sponsor-badge-tag">90% OFF</div>
-        <video id="lootVideo" autoplay muted playsinline>
-          <source src="https://files.catbox.moe/ht250d.mp4" type="video/mp4">
-        </video>
-      </div>
+    <!-- 5. INTERACTIVE SPONSORED LOOT CARD (FULL CARD CLICKABLE) -->
+    <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="interactive-loot-link">
+      <div class="sponsor-loot-card">
+        <div class="sponsor-video-side">
+          <div class="sponsor-badge-tag">90% OFF</div>
+          <video id="lootVideo" autoplay muted playsinline>
+            <source src="https://files.catbox.moe/ht250d.mp4" type="video/mp4">
+          </video>
+        </div>
 
-      <div class="sponsor-content-side">
-        <div class="sponsor-label-row">⚡ SECRET PRICE BUGS • LIVE DROP</div>
-        <div class="sponsor-heading">Exclusive <span>Bug Loot Deals</span> & Codes!</div>
-        <div class="sponsor-social-line">👥 1,420+ Members Joined Today (100% Free)</div>
-        <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="btn-claim-loot">
-          Claim Loot (Free) →
-        </a>
+        <div class="sponsor-content-side">
+          <div class="sponsor-label-row">⚡ SECRET PRICE BUGS • LIVE DROP</div>
+          <div class="sponsor-heading">Exclusive <span>Bug Loot Deals</span> & Codes!</div>
+          <div class="sponsor-social-line">👥 1,420+ Members Joined Today (100% Free)</div>
+          <div class="btn-claim-loot">
+            Claim Loot (Free) 👉
+          </div>
+        </div>
       </div>
-    </div>
+    </a>
 
   </div>
 
-  <!-- MANDATORY FORCE POPUP -->
+  <!-- MANDATORY POPUP -->
   <div class="overlay" id="forcePop">
     <div class="popup">
       <div class="popup-icon">
@@ -555,7 +624,7 @@
     </div>
   </div>
 
-  <!-- SCRIPTS & FIREBASE INTEGRATION -->
+  <!-- SCRIPTS & INTEGRATION -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
@@ -620,7 +689,7 @@
           return;
         }
 
-        // Apply channel name and player source
+        // Apply dynamic channel name and player source
         document.getElementById('channel-name').innerText = channelTitle.toUpperCase();
         document.getElementById('main-player').src = iframeSrc;
         document.getElementById('loading-screen').style.display = 'none';
@@ -649,12 +718,33 @@
       window.open(TELEGRAM_LINK, "_blank");
     }
 
-    function shareLink() {
+    // TOAST NOTIFICATION TRIGGER
+    function showToast(message) {
+      const toast = document.getElementById('toastMessage');
+      document.getElementById('toastText').innerText = message;
+      toast.classList.add('active');
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, 2400);
+    }
+
+    // INTERACTIVE RELOAD FEEDBACK
+    function handleReload(btn) {
+      const icon = document.getElementById('reloadIcon');
+      icon.style.transform = "rotate(360deg)";
+      showToast("Reloading Live Feed...");
+      setTimeout(() => {
+        location.reload();
+      }, 400);
+    }
+
+    // INTERACTIVE SHARE WITH TOAST FEEDBACK
+    function handleShare() {
       if (navigator.share) {
         navigator.share({ title: 'Cricket Yoddha', url: window.location.href }).catch(() => {});
       } else {
         navigator.clipboard.writeText(window.location.href);
-        alert("Link copied!");
+        showToast("✓ Link copied to clipboard!");
       }
     }
 
@@ -669,7 +759,7 @@
       });
     }
 
-    // Firebase Setup
+    // Firebase Live Counter Setup
     const firebaseConfig = { 
       apiKey: "AIzaSyA-vR50CMDYJVHApJir-6fmgRqhFiqQDU8", 
       authDomain: "my-website-cricket.firebaseapp.com", 
