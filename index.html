@@ -326,7 +326,7 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    /* 🔥 MODIFIED HIGH-CONVERTING LOOT SECTION */
+    /* 🔥 MODIFIED PROMINENT LOOT SHOWCASE (VIDEO ACCE SE DIKHEGA) */
     .interactive-loot-link {
       text-decoration: none;
       display: block;
@@ -337,77 +337,92 @@
       transform: scale(0.97);
     }
     .sponsor-loot-card {
-      background: linear-gradient(145deg, #181b2c 0%, #0d0f1a 100%);
+      background: linear-gradient(160deg, #181b2c 0%, #0d0f1a 100%);
       border: 1.5px solid rgba(255, 184, 0, 0.5);
       border-radius: 16px;
-      padding: 11px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
+      overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 20px rgba(255, 184, 0, 0.15);
       position: relative;
       cursor: pointer;
     }
-    .sponsor-video-side {
-      width: 115px;
-      height: 76px;
-      flex-shrink: 0;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
+    
+    /* PROMINENT VIDEO WINDOW */
+    .loot-video-cinema {
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-height: 155px;
       background: #000;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
     }
-    .sponsor-video-side video {
+    .loot-video-cinema video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .sponsor-badge-tag {
+    .loot-live-pill {
       position: absolute;
-      top: 4px;
-      left: 4px;
-      background: var(--accent-flame);
+      top: 8px;
+      left: 8px;
+      background: rgba(255, 30, 66, 0.95);
       color: #fff;
-      font-size: 7.5px;
+      font-size: 8px;
       font-weight: 900;
-      padding: 2px 5px;
+      padding: 3px 7px;
       border-radius: 4px;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    }
-    .sponsor-content-side {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-grow: 1;
-      gap: 3px;
-    }
-    .sponsor-label-row {
-      font-size: 9px;
-      font-weight: 800;
-      color: var(--accent-gold);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 4px;
+      letter-spacing: 0.6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
-    .sponsor-heading {
+    .loot-glitch-tag {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--accent-gold);
+      font-size: 8.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 184, 0, 0.4);
+    }
+
+    .loot-details-bar {
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .loot-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-align: left;
+    }
+    .loot-tag-mini {
+      font-size: 8.5px;
+      color: var(--accent-gold);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .loot-title-main {
       font-size: 13px;
       font-weight: 800;
       color: #fff;
-      line-height: 1.25;
+      line-height: 1.2;
     }
-    .sponsor-heading span { color: var(--accent-gold); }
-    .sponsor-social-line {
-      font-size: 9.5px;
+    .loot-title-main span {
+      color: var(--accent-gold);
+    }
+    .loot-members-count {
+      font-size: 9px;
       color: var(--accent-mint);
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 3px;
     }
     .btn-claim-loot {
       display: inline-flex;
@@ -415,15 +430,14 @@
       justify-content: center;
       background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-flame) 100%);
       color: #000;
-      padding: 7px 12px;
+      padding: 8px 14px;
       border-radius: 8px;
       font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      width: fit-content;
       box-shadow: 0 4px 14px rgba(255, 85, 0, 0.45);
-      margin-top: 3px;
+      flex-shrink: 0;
       animation: pulseBtn 1.8s infinite;
     }
     @keyframes pulseBtn {
@@ -482,116 +496,78 @@
     }
     #error-screen h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: #ff3355; }
 
-    /* 🔥 NEW HIGH-END POPUP (100% ENGLISH VIP MODAL) */
+    /* 🔥 COMPACT / MEDIUM-SIZE POPUP (CLEAN & PROFESSIONAL) */
     .overlay {
       display: none; position: fixed; inset: 0;
-      background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      z-index: 9000; justify-content: center; align-items: center; padding: 18px;
+      background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 9000; justify-content: center; align-items: center; padding: 16px;
     }
     .overlay.active { display: flex; }
     .popup {
       background: linear-gradient(165deg, #141728 0%, #0a0d18 100%);
-      border: 1.5px solid rgba(0, 168, 255, 0.45);
-      border-radius: 22px;
-      padding: 26px 20px;
+      border: 1px solid rgba(0, 168, 255, 0.4);
+      border-radius: 18px;
+      padding: 20px 18px;
       width: 100%;
-      max-width: 370px;
+      max-width: 320px; /* MEDIUM COMPACT SIZE */
       text-align: center;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 136, 204, 0.25);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
       position: relative;
-      animation: popZoom 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: popZoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes popZoom {
-      from { transform: scale(0.85) translateY(20px); opacity: 0; }
+      from { transform: scale(0.88) translateY(15px); opacity: 0; }
       to { transform: scale(1) translateY(0); opacity: 1; }
     }
-    .popup-badge-top {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(0, 168, 255, 0.12);
-      border: 1px solid rgba(0, 168, 255, 0.35);
-      color: var(--accent-cyan);
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 14px;
-    }
     .popup-icon {
-      width: 54px;
-      height: 54px;
+      width: 42px;
+      height: 42px;
       background: linear-gradient(135deg, #0088cc, #005f99);
-      border-radius: 16px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 14px;
-      box-shadow: 0 8px 24px rgba(0, 136, 204, 0.5);
+      margin: 0 auto 10px;
+      box-shadow: 0 6px 18px rgba(0, 136, 204, 0.45);
     }
-    .popup-icon svg { width: 28px; height: 28px; fill: #fff; }
+    .popup-icon svg { width: 22px; height: 22px; fill: #fff; }
     .popup-brand-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 3px;
+      font-size: 24px;
+      letter-spacing: 2px;
       color: #fff;
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .popup-title-english {
-      font-size: 15px;
+      font-size: 13.5px;
       font-weight: 800;
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .popup-title-english span {
       color: var(--accent-cyan);
     }
     .popup-desc-english {
       color: #94a3b8;
-      font-size: 12px;
-      line-height: 1.6;
+      font-size: 11.5px;
+      line-height: 1.5;
       margin-bottom: 16px;
-    }
-    .popup-perks-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--surface-border);
-      border-radius: 12px;
-      padding: 10px 12px;
-      margin-bottom: 18px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .perk-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 11px;
-      color: #e2e8f0;
-      font-weight: 600;
-    }
-    .perk-item i {
-      font-size: 14px;
-      color: var(--accent-mint);
     }
     .btn-join {
       width: 100%;
-      padding: 13px;
+      padding: 12px;
       background: linear-gradient(135deg, #0088cc 0%, #005f99 100%);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #fff;
-      border-radius: 12px;
-      font-size: 13.5px;
+      border-radius: 10px;
+      font-size: 13px;
       font-weight: 800;
       cursor: pointer;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      box-shadow: 0 6px 22px rgba(0, 136, 204, 0.5);
+      letter-spacing: 0.6px;
+      box-shadow: 0 4px 16px rgba(0, 136, 204, 0.45);
       transition: transform 0.15s ease;
     }
     .btn-join:active {
@@ -679,230 +655,4 @@
       <button onclick="handleReload(this)" class="interactive-btn">
         <i class="material-icons" id="reloadIcon">refresh</i> Reload Stream
       </button>
-      <button onclick="handleShare()" class="interactive-btn">
-        <i class="material-icons">share</i> Share Stream
-      </button>
-    </div>
-
-    <!-- 5. 🔥 HIGH-CONVERTING MODIFIED LOOT SECTION (FULL CARD CLICKABLE) -->
-    <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="interactive-loot-link">
-      <div class="sponsor-loot-card">
-        <div class="sponsor-video-side">
-          <div class="sponsor-badge-tag">🔥 99% GLITCH</div>
-          <video id="lootVideo" autoplay muted playsinline>
-            <source src="https://files.catbox.moe/ht250d.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="sponsor-content-side">
-          <div class="sponsor-label-row">⚡ SECRET PRICE BUGS • LIVE DROP</div>
-          <div class="sponsor-heading">Grab Secret <span>Bug Deals</span> & ₹1 Loots!</div>
-          <div class="sponsor-social-line">👥 1,420+ Members Joined Today (Free VIP)</div>
-          <div class="btn-claim-loot">
-            Claim Loot (Free) 👉
-          </div>
-        </div>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- 🔥 6. REDESIGNED VIP ACCESS MODAL (ENGLISH MESSAGE) -->
-  <div class="overlay" id="forcePop">
-    <div class="popup">
-      <div class="popup-badge-top">
-        <i class="material-icons" style="font-size: 12px;">lock</i> VIP PASS REQUIRED
-      </div>
-
-      <div class="popup-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
-      </div>
-
-      <div class="popup-brand-name">CRICKET YODDHA</div>
-      
-      <div class="popup-title-english">
-        Unlock <span>Full Stream</span> Access
-      </div>
-
-      <p class="popup-desc-english">
-        To watch all live matches uninterrupted in Ultra HD, joining our official Telegram channel is mandatory. You will receive an instant <strong>24-Hour Free Pass</strong>!
-      </p>
-
-      <div class="popup-perks-box">
-        <div class="perk-item">
-          <i class="material-icons">check_circle</i> Ultra HD 1080p Low-Latency Stream
-        </div>
-        <div class="perk-item">
-          <i class="material-icons">check_circle</i> Direct Backup Links & Commentary
-        </div>
-        <div class="perk-item">
-          <i class="material-icons">check_circle</i> 100% Free Lifetime VIP Access
-        </div>
-      </div>
-
-      <button class="btn-join" onclick="goTelegram()">
-        Join Telegram to Unlock →
-      </button>
-    </div>
-  </div>
-
-  <!-- SCRIPTS & INTEGRATION -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-  <script>
-    const CONFIG = { key: "yoddha_access_v12", timeKey: "yoddha_time_v12", preview: 5000, expiry: 86400000 };
-    const JSON_URL = "https://cricket-yoddha-2-o-json.pages.dev/links.json";
-    const TELEGRAM_LINK = "https://t.me/+rwZKMV0-L8wyOTll";
-
-    window.onload = () => {
-      const lastJoin = localStorage.getItem(CONFIG.timeKey);
-      const now = new Date().getTime();
-      
-      if (lastJoin && (now - lastJoin < CONFIG.expiry)) {
-        document.getElementById('main-stage').classList.remove('locked');
-      } else {
-        document.getElementById('main-stage').classList.add('locked');
-        setTimeout(() => {
-          document.getElementById('forcePop').classList.add('active');
-        }, CONFIG.preview);
-      }
-      
-      loadStream();
-    };
-
-    async function loadStream() {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("id");
-      
-      if (!id) {
-        showError("No channel ID specified.");
-        return;
-      }
-
-      try {
-        const response = await fetch(JSON_URL + "?t=" + Date.now());
-        if (!response.ok) throw new Error("Fetch failed");
-        
-        const data = await response.json();
-        let iframeSrc = "";
-        let channelTitle = id.replace(/[-_]/g, ' ').toUpperCase();
-
-        // Extract channel name and source dynamically from JSON
-        if (data.iframes) {
-          const found = data.iframes.find(x => x.id === id);
-          if (found) {
-            iframeSrc = found.iframeSrc;
-            if (found.name || found.channel || found.title || found.channelName) {
-              channelTitle = found.name || found.channel || found.title || found.channelName;
-            }
-          }
-        } else if (data.channels && data.channels[id]) {
-          if (typeof data.channels[id] === 'object') {
-            iframeSrc = data.channels[id].iframeSrc || data.channels[id].link || data.channels[id].url;
-            channelTitle = data.channels[id].name || data.channels[id].channel || channelTitle;
-          } else {
-            iframeSrc = data.channels[id];
-          }
-        }
-
-        if (!iframeSrc) {
-          showError("Channel stream not found.");
-          return;
-        }
-
-        // Apply channel name and player source
-        document.getElementById('channel-name').innerText = channelTitle.toUpperCase();
-        document.getElementById('main-player').src = iframeSrc;
-        document.getElementById('loading-screen').style.display = 'none';
-
-      } catch (e) {
-        showError("Failed to fetch stream details.");
-      }
-    }
-
-    function showError(msg) {
-      document.getElementById('loading-screen').style.display = 'none';
-      const errScreen = document.getElementById('error-screen');
-      errScreen.style.display = 'flex';
-      document.getElementById('error-msg').innerText = msg;
-    }
-
-    function verifyAccess() {
-      localStorage.setItem(CONFIG.key, 'true');
-      localStorage.setItem(CONFIG.timeKey, new Date().getTime());
-      document.getElementById('forcePop').classList.remove('active');
-      document.getElementById('main-stage').classList.remove('locked');
-    }
-
-    function goTelegram() {
-      verifyAccess();
-      window.open(TELEGRAM_LINK, "_blank");
-    }
-
-    // TOAST NOTIFICATION TRIGGER
-    function showToast(message) {
-      const toast = document.getElementById('toastMessage');
-      document.getElementById('toastText').innerText = message;
-      toast.classList.add('active');
-      setTimeout(() => {
-        toast.classList.remove('active');
-      }, 2400);
-    }
-
-    // INTERACTIVE RELOAD FEEDBACK
-    function handleReload(btn) {
-      const icon = document.getElementById('reloadIcon');
-      icon.style.transform = "rotate(360deg)";
-      showToast("Reloading Live Feed...");
-      setTimeout(() => {
-        location.reload();
-      }, 400);
-    }
-
-    // INTERACTIVE SHARE WITH TOAST FEEDBACK
-    function handleShare() {
-      if (navigator.share) {
-        navigator.share({ title: 'Cricket Yoddha', url: window.location.href }).catch(() => {});
-      } else {
-        navigator.clipboard.writeText(window.location.href);
-        showToast("✓ Link copied to clipboard!");
-      }
-    }
-
-    // Video auto-loop logic
-    const lootVideo = document.getElementById('lootVideo');
-    if (lootVideo) {
-      lootVideo.addEventListener('ended', function() {
-        setTimeout(function() {
-          lootVideo.currentTime = 0;
-          lootVideo.play();
-        }, 3000);
-      });
-    }
-
-    // Firebase Live Counter Setup
-    const firebaseConfig = { 
-      apiKey: "AIzaSyA-vR50CMDYJVHApJir-6fmgRqhFiqQDU8", 
-      authDomain: "my-website-cricket.firebaseapp.com", 
-      databaseURL: "https://my-website-cricket-default-rtdb.firebaseio.com", 
-      projectId: "my-website-cricket" 
-    };
-    if(!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-    
-    const db = firebase.database();
-    const today = new Date().toISOString().slice(0, 10);
-    const params = new URLSearchParams(window.location.search);
-    const currentId = params.get("id") || "default_channel";
-
-    const dbRefName = "cricket_yoddha_" + currentId;
-    
-    const ref = db.ref('live_users/' + dbRefName + '/' + today);
-    ref.transaction(v => (v || 0) + 1);
-    ref.on('value', snap => { 
-      const count = snap.val() || 0;
-      document.getElementById('live-count').innerText = count.toLocaleString();
-    });
-  </script>
-</body>
-</html>
+      <button onclick="handleShare()" cla
