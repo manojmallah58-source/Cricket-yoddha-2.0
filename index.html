@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
-  <title>CRICKET YODDHA - Cyber Live OTT</title>
+  <title>CRICKET YODDHA - VIP Cinema Live Stream</title>
   
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Chakra+Petch:wght@600;700;800&family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Chakra+Petch:wght@600;700;800&family=Bebas+Neue&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #07070e;
-      --card-bg: rgba(18, 18, 30, 0.75);
-      --card-border: rgba(255, 255, 255, 0.09);
-      --neon-cyan: #00f2fe;
-      --neon-purple: #7928ca;
-      --neon-pink: #ff0080;
-      --neon-green: #00ffa3;
+      --bg: #05070d;
+      --card-bg: rgba(14, 18, 29, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --neon-cyan: #00d2ff;
+      --neon-glow: rgba(0, 210, 255, 0.25);
+      --accent-red: #ff1e42;
+      --gold: #ffb800;
+      --gold-glow: rgba(255, 184, 0, 0.3);
+      --emerald: #00ff88;
       --telegram: #0088cc;
     }
 
@@ -28,68 +30,87 @@
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
+    body {
       background: var(--bg);
       background-image: 
-        radial-gradient(circle at 10% 0%, rgba(121, 40, 202, 0.18) 0%, transparent 40%),
-        radial-gradient(circle at 90% 100%, rgba(0, 242, 254, 0.12) 0%, transparent 45%);
+        radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 10% 40%, rgba(255, 30, 66, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 184, 0, 0.06) 0%, transparent 40%);
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: #fff;
+      padding-bottom: 25px;
       overflow-x: hidden;
+      min-height: 100vh;
+      width: 100%;
     }
 
-    /* COMPACT APP HEADER */
+    /* CENTERED LUXURY HEADER */
     header {
-      height: 48px;
-      background: rgba(7, 7, 14, 0.85);
+      height: 64px;
+      background: rgba(5, 7, 13, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 12px;
-      border-bottom: 1px solid var(--card-border);
+      justify-content: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 1px solid var(--card-border);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
     }
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .logo-img { height: 32px; width: auto; }
-    .header-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .icon-action-btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--card-border);
-      color: #fff;
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+    .header-center {
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      position: relative;
     }
-    .icon-action-btn i { font-size: 16px; }
+    .logo-img {
+      height: 42px;
+      width: auto;
+      filter: drop-shadow(0 0 14px rgba(0, 210, 255, 0.35));
+      transition: transform 0.3s ease;
+    }
+    .header-live-badge {
+      position: absolute;
+      right: -55px;
+      top: -2px;
+      background: rgba(255, 30, 66, 0.15);
+      border: 1px solid rgba(255, 30, 66, 0.5);
+      color: #ff3355;
+      font-size: 8.5px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 6px;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .badge-dot {
+      width: 4px;
+      height: 4px;
+      background: #ff3355;
+      border-radius: 50%;
+      animation: pulseDot 1s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.7); }
+    }
 
-    /* VIDEO STAGE */
+    /* THEATER VIDEO STAGE WITH AMBIENT BACKLIGHT */
     #main-stage {
       width: 100%;
       position: relative;
       background: #000;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.95);
     }
     #main-stage.locked .video-box {
       pointer-events: none;
       user-select: none;
     }
+
     .video-box {
       width: 100%;
       aspect-ratio: 16/9;
@@ -106,101 +127,105 @@
       left: 0;
     }
 
-    /* BROADCAST CHANNEL META INFO BAR */
-    .channel-info-strip {
-      background: linear-gradient(90deg, #10121d 0%, #0d0e18 100%);
+    /* DYNAMIC BROADCAST CHANNEL BAR */
+    .broadcast-bar {
+      background: linear-gradient(90deg, rgba(14, 19, 31, 0.95) 0%, rgba(7, 10, 18, 0.95) 100%);
       border-bottom: 1px solid var(--card-border);
-      padding: 8px 12px;
+      padding: 9px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .channel-left {
+    .channel-meta {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       max-width: 65%;
     }
-    .equalizer {
+    .sound-equalizer {
       display: flex;
       align-items: flex-end;
-      gap: 2px;
-      height: 14px;
+      gap: 2.5px;
+      height: 15px;
     }
-    .eq-bar {
+    .sound-equalizer span {
       width: 3px;
       background: var(--neon-cyan);
       border-radius: 2px;
     }
-    .eq-bar:nth-child(1) { animation: eq 0.6s infinite ease-in-out; }
-    .eq-bar:nth-child(2) { animation: eq 0.8s infinite ease-in-out 0.2s; }
-    .eq-bar:nth-child(3) { animation: eq 0.5s infinite ease-in-out 0.4s; }
-    .eq-bar:nth-child(4) { animation: eq 0.7s infinite ease-in-out 0.1s; }
-    @keyframes eq { 0%, 100% { height: 3px; } 50% { height: 14px; } }
-
-    .channel-title-text {
+    .sound-equalizer span:nth-child(1) { animation: eqJump 0.6s infinite ease-in-out; }
+    .sound-equalizer span:nth-child(2) { animation: eqJump 0.8s infinite ease-in-out 0.2s; }
+    .sound-equalizer span:nth-child(3) { animation: eqJump 0.5s infinite ease-in-out 0.4s; }
+    .sound-equalizer span:nth-child(4) { animation: eqJump 0.7s infinite ease-in-out 0.1s; }
+    @keyframes eqJump {
+      0%, 100% { height: 3px; }
+      50% { height: 15px; }
+    }
+    .channel-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 800;
       color: #fff;
-      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      text-transform: uppercase;
     }
 
-    .live-counter-pill {
-      background: rgba(0, 255, 163, 0.1);
-      border: 1px solid rgba(0, 255, 163, 0.3);
-      padding: 3px 8px;
-      border-radius: 20px;
+    .live-users-badge {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      padding: 4px 10px;
+      border-radius: 20px;
       font-family: 'Chakra Petch', sans-serif;
-      font-size: 11px;
-      color: var(--neon-green);
+      font-size: 12px;
       font-weight: 700;
+      color: var(--emerald);
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
     }
-    .live-pulse-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--neon-green);
+    .live-users-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--emerald);
       border-radius: 50%;
-      box-shadow: 0 0 8px var(--neon-green);
-      animation: blinkDot 1s infinite;
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulseDot 1s infinite;
     }
-    @keyframes blinkDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
 
-    /* COMPACT MAIN ACTIONS */
-    .actions-body {
-      padding: 10px 12px;
+    /* ACTION LAYOUT */
+    .actions-container {
+      padding: 12px 14px;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      max-width: 480px;
-      margin: 0 auto;
+      gap: 10px;
     }
 
-    /* TELEGRAM VIP PULSE BUTTON */
-    .btn-action {
+    /* MAIN TELEGRAM STREAM ACCESS BUTTON */
+    .btn-telegram-vip {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      padding: 11px 14px;
-      background: linear-gradient(135deg, #0088cc 0%, #005580 100%);
-      border: 1px solid rgba(0, 242, 254, 0.4);
-      border-radius: 10px;
+      padding: 13px 16px;
+      background: linear-gradient(135deg, #0088cc 0%, #005f99 100%);
       color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
       text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0, 136, 204, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 136, 204, 0.35);
+      transition: transform 0.2s ease;
     }
-    .btn-action::before {
+    .btn-telegram-vip:active { transform: scale(0.98); }
+    .btn-telegram-vip::after {
       content: '';
       position: absolute;
       top: -50%;
@@ -209,167 +234,255 @@
       height: 200%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
       transform: rotate(25deg);
-      animation: sweepLight 2.5s infinite;
+      animation: shimmerWave 2.8s infinite;
     }
-    @keyframes sweepLight {
+    @keyframes shimmerWave {
       0% { left: -60%; }
       50%, 100% { left: 140%; }
     }
-    .btn-action-left {
+    .tg-content-left {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
     }
-    .btn-icon-tg {
-      width: 28px;
-      height: 28px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 6px;
+    .tg-icon-circle {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .btn-icon-tg svg { width: 17px; height: 17px; fill: #fff; }
-    .btn-text-main {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+    .tg-icon-circle svg { width: 18px; height: 18px; fill: #fff; }
+    .tg-title-box {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
     }
-    .btn-text-sub {
-      font-size: 9.5px;
+    .tg-title-main {
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .tg-title-sub {
+      font-size: 10px;
       color: rgba(255, 255, 255, 0.8);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* COMPACT HORIZONTAL LOOT FLASH CARD (ZERO OVERFLOW) */
-    .compact-loot-card {
-      background: linear-gradient(135deg, #141624 0%, #0c0d16 100%);
-      border: 1px solid rgba(255, 184, 0, 0.3);
-      border-radius: 12px;
-      padding: 8px;
+    /* CONTROL BUTTONS */
+    .quick-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .ctrl-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      color: #cbd5e1;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
       display: flex;
-      gap: 10px;
       align-items: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
     }
-    .loot-video-thumb {
-      width: 105px;
-      height: 68px;
-      flex-shrink: 0;
-      border-radius: 8px;
+    .ctrl-btn i { font-size: 16px; color: var(--neon-cyan); }
+    .ctrl-btn:active { background: rgba(255, 255, 255, 0.1); }
+
+    /* 🔥 HIGH-CONVERTING VIP FLASH LOOT TERMINAL */
+    .loot-terminal-card {
+      background: linear-gradient(150deg, #131929 0%, #090c14 100%);
+      border: 1.5px solid rgba(255, 184, 0, 0.4);
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 184, 0, 0.15);
       position: relative;
-      background: #000;
     }
-    .loot-video-thumb video {
+    .loot-top-header {
+      background: rgba(255, 184, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 184, 0, 0.2);
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .loot-top-header-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .loot-status-live {
+      background: var(--accent-red);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      animation: pulseDot 1s infinite;
+    }
+
+    .loot-media-box {
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-height: 155px;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+    .loot-media-box video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
-    .mini-badge {
+    .loot-video-badge {
       position: absolute;
-      top: 4px;
-      left: 4px;
-      background: rgba(255, 0, 128, 0.9);
+      bottom: 8px;
+      left: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 184, 0, 0.4);
       color: #fff;
-      font-size: 7.5px;
-      font-weight: 900;
-      padding: 2px 4px;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
-    }
-    .loot-details {
+      font-size: 9px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-grow: 1;
-      gap: 3px;
+      align-items: center;
+      gap: 5px;
     }
-    .loot-title {
-      font-size: 11.5px;
+    .loot-video-badge span { color: var(--gold); }
+
+    .loot-body-content {
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .loot-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
       font-weight: 800;
       color: #fff;
-      line-height: 1.25;
+      margin-bottom: 4px;
+      line-height: 1.3;
     }
-    .loot-title span { color: #ffb800; }
-    .loot-sub {
-      font-size: 9px;
-      color: #00ffa3;
-      font-weight: 700;
+    .loot-headline span {
+      background: linear-gradient(90deg, #ffb800, #ff416c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .btn-loot-cta {
+    .loot-desc {
+      color: #94a3b8;
+      font-size: 11px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .loot-social-proof {
       display: inline-flex;
       align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px dashed rgba(0, 255, 136, 0.35);
+      color: var(--emerald);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin-bottom: 11px;
+    }
+    .btn-loot-join {
+      display: flex;
+      align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #ffb800, #ff8c00);
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(135deg, #ffb800 0%, #ff8c00 100%);
       color: #000;
       text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 12.5px;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      width: fit-content;
-      margin-top: 2px;
+      letter-spacing: 0.8px;
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.45);
+      animation: bouncePulse 2.2s infinite;
+    }
+    @keyframes bouncePulse {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-3px); }
+      60% { transform: translateY(-1.5px); }
     }
 
-    /* ERROR & LOADING OVERLAYS */
+    /* LOADING & ERROR SCREENS */
     #loading-screen {
       position: fixed;
       inset: 0;
-      background: var(--bg);
+      background: #05070d;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 12px;
+      gap: 15px;
       z-index: 9999;
     }
     .load-brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 36px;
-      letter-spacing: 4px;
+      font-size: 38px;
+      letter-spacing: 5px;
       color: #fff;
     }
     .load-brand span { color: var(--neon-cyan); }
-    .spinner-ring {
-      width: 32px;
-      height: 32px;
+    .loader-ring {
+      width: 36px;
+      height: 36px;
       border: 3px solid rgba(255,255,255,0.1);
       border-top-color: var(--neon-cyan);
       border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      animation: rotate 0.8s linear infinite;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes rotate { to { transform: rotate(360deg); } }
 
     #error-screen {
       display: none;
       position: fixed;
       inset: 0;
-      background: var(--bg);
+      background: #05070d;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       z-index: 9998;
-      padding: 20px;
+      padding: 24px;
       text-align: center;
     }
     #error-screen h2 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      color: var(--neon-pink);
+      font-size: 34px;
+      color: var(--accent-red);
+      letter-spacing: 3px;
     }
-    #error-screen p { color: #8e9bb0; font-size: 13px; line-height: 1.5; }
+    #error-screen p { color: #94a3b8; font-size: 13.5px; line-height: 1.6; }
 
-    /* MANDATORY MODAL */
+    /* MANDATORY ACCESS POPUP */
     .overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       z-index: 9000;
@@ -379,50 +492,65 @@
     }
     .overlay.active { display: flex; }
     .popup {
-      background: linear-gradient(165deg, #131525 0%, #0c0d16 100%);
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      border-radius: 18px;
-      padding: 24px 18px;
+      background: linear-gradient(165deg, #121727 0%, #0a0d17 100%);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      border-radius: 20px;
+      padding: 26px 20px;
       width: 100%;
-      max-width: 360px;
+      max-width: 380px;
       text-align: center;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 25px rgba(0, 136, 204, 0.25);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 136, 204, 0.3);
+      animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.85) translateY(20px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
     }
     .popup-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       background: linear-gradient(135deg, #0088cc, #005f99);
-      border-radius: 12px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 12px;
+      margin: 0 auto 14px;
+      box-shadow: 0 8px 24px rgba(0, 136, 204, 0.4);
     }
-    .popup-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .popup-icon svg { width: 26px; height: 26px; fill: #fff; }
     .popup-brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 3px;
+      font-size: 30px;
+      letter-spacing: 4px;
       color: #fff;
+      margin-bottom: 6px;
+    }
+    .accent-bar {
+      width: 36px;
+      height: 3px;
+      background: var(--neon-cyan);
+      border-radius: 2px;
+      margin: 0 auto 14px;
     }
     .popup p {
       color: #94a3b8;
-      font-size: 12.5px;
-      line-height: 1.5;
-      margin: 10px 0 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
     .btn-join {
       width: 100%;
-      padding: 12px;
+      padding: 13px;
       background: linear-gradient(135deg, #0088cc, #005f99);
-      border: none;
+      border: 1px solid rgba(255,255,255,0.2);
       color: #fff;
       border-radius: 10px;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 800;
       cursor: pointer;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      box-shadow: 0 6px 20px rgba(0, 136, 204, 0.45);
     }
   </style>
 </head>
@@ -431,84 +559,108 @@
   <!-- LOADING OVERLAY -->
   <div id="loading-screen">
     <div class="load-brand">CRICKET <span>YODDHA</span></div>
-    <div class="spinner-ring"></div>
-    <p style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #64748b;">Loading Live Feed...</p>
+    <div class="loader-ring"></div>
+    <p style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #64748b;">Initializing VIP Stream Feed...</p>
   </div>
 
   <!-- ERROR OVERLAY -->
   <div id="error-screen">
-    <h2>Channel Offline</h2>
-    <p id="error-msg">Stream not accessible currently.</p>
-    <a href="javascript:location.reload()" class="btn-loot-cta" style="padding: 10px 18px;">Retry Now</a>
+    <h2>Broadcast Offline</h2>
+    <p id="error-msg">This match channel is currently unreachable.<br>Please try reloading.</p>
+    <a href="javascript:location.reload()" class="ctrl-btn" style="max-width: 170px; margin-top: 10px; background: #ff1e42; color: #fff; border: none;">
+      <i class="material-icons" style="color: #fff;">refresh</i> RELOAD MATCH
+    </a>
   </div>
 
-  <!-- TOP APP HEADER -->
+  <!-- CENTERED LUXURY HEADER -->
   <header>
-    <div class="brand-wrap">
+    <div class="header-center">
       <img src="https://i.ibb.co/HLkW7zJV/ei-1765534270242-removebg-preview.png" alt="Cricket Yoddha" class="logo-img">
-    </div>
-    <div class="header-controls">
-      <button onclick="shareLink()" class="icon-action-btn" title="Share"><i class="material-icons">share</i></button>
-      <button onclick="location.reload()" class="icon-action-btn" title="Refresh"><i class="material-icons">refresh</i></button>
+      <div class="header-live-badge">
+        <div class="badge-dot"></div> 4K LIVE
+      </div>
     </div>
   </header>
 
-  <!-- VIDEO PLAYER FRAME -->
+  <!-- THEATER VIDEO PLAYER -->
   <div id="main-stage">
     <div class="video-box">
       <iframe id="main-player" allowfullscreen="true" scrolling="no" allow="autoplay; encrypted-media"></iframe>
     </div>
   </div>
 
-  <!-- BROADCAST & CHANNEL NAME STRIP (DYNAMICALLY FETCHED) -->
-  <div class="channel-info-strip">
-    <div class="channel-left">
-      <div class="equalizer">
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
+  <!-- BROADCAST DYNAMIC CHANNEL BAR -->
+  <div class="broadcast-bar">
+    <div class="channel-meta">
+      <div class="sound-equalizer">
+        <span></span><span></span><span></span><span></span>
       </div>
       <!-- DYNAMIC CHANNEL NAME INSERTED HERE -->
-      <div class="channel-title-text" id="channel-name">CRICKET LIVE HD</div>
+      <div class="channel-title" id="channel-name">LIVE MATCH STREAM</div>
     </div>
-    
-    <div class="live-counter-pill">
-      <div class="live-pulse-dot"></div>
-      <span id="live-count">0</span> LIVE
+
+    <!-- LIVE WATCHING STATS -->
+    <div class="live-users-badge">
+      <div class="live-users-dot"></div>
+      <span id="live-count">0</span> WATCHING
     </div>
   </div>
 
-  <!-- COMPACT MOBILE ACTIONS BODY -->
-  <div class="actions-body">
+  <!-- ACTIONS & ENGAGEMENT CONTAINER -->
+  <div class="actions-container">
     
-    <!-- MAIN TELEGRAM ACTION -->
-    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="btn-action">
-      <div class="btn-action-left">
-        <div class="btn-icon-tg">
+    <!-- MAIN STREAM ACCESS TELEGRAM CARD -->
+    <a href="https://t.me/+rwZKMV0-L8wyOTll" target="_blank" onclick="verifyAccess()" class="btn-telegram-vip">
+      <div class="tg-content-left">
+        <div class="tg-icon-circle">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
         </div>
-        <div>
-          <div class="btn-text-main">Join Telegram VIP</div>
-          <div class="btn-text-sub">Instant backup links & live updates</div>
+        <div class="tg-title-box">
+          <div class="tg-title-main">Follow Official Telegram</div>
+          <div class="tg-title-sub">Instant backup stream links & commentary</div>
         </div>
       </div>
-      <i class="material-icons" style="color: rgba(255,255,255,0.7); font-size: 20px;">chevron_right</i>
+      <i class="material-icons" style="font-size: 20px; color: rgba(255,255,255,0.7);">chevron_right</i>
     </a>
 
-    <!-- COMPACT HORIZONTAL LOOT FLASH CARD -->
-    <div class="compact-loot-card">
-      <div class="loot-video-thumb">
-        <div class="mini-badge">90% OFF</div>
+    <!-- REFRESH & SHARE CONTROLS -->
+    <div class="quick-controls">
+      <button onclick="location.reload()" class="ctrl-btn">
+        <i class="material-icons">refresh</i> REFRESH STREAM
+      </button>
+      <button onclick="shareLink()" class="ctrl-btn">
+        <i class="material-icons">share</i> SHARE STREAM
+      </button>
+    </div>
+
+    <!-- 🔥 HIGH-CONVERTING VIP FLASH LOOT TERMINAL -->
+    <div class="loot-terminal-card">
+      <div class="loot-top-header">
+        <div class="loot-top-header-tag">
+          ⚡ EXCLUSIVE SHOPPING LOOT BOT
+        </div>
+        <div class="loot-status-live">● ACTIVE DEALS</div>
+      </div>
+
+      <div class="loot-media-box">
         <video id="lootVideo" autoplay muted playsinline>
           <source src="https://files.catbox.moe/ht250d.mp4" type="video/mp4">
         </video>
+        <div class="loot-video-badge">
+          🔥 <span>90% - 99% OFF</span> GLITCHES
+        </div>
       </div>
-      <div class="loot-details">
-        <div class="loot-title">Secret <span>Bug Offers</span> & Loots</div>
-        <div class="loot-sub">⚡ 1,420+ Joined Today • 100% Free</div>
-        <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="btn-loot-cta">
-          Join Loot Channel →
+
+      <div class="loot-body-content">
+        <h3 class="loot-headline">Secret <span>Bug Loot Deals</span> & 1₹ Offers!</h3>
+        <p class="loot-desc">Hidden price drop codes, Amazon/Flipkart bugs & instant discounts.</p>
+        
+        <div class="loot-social-proof">
+          👥 1,420+ Members joined today • Free VIP Entry
+        </div>
+
+        <a href="https://t.me/+dXBfsd_sqlU1YWY1" target="_blank" class="btn-loot-join">
+          👉 Join Secret Loot Channel (Free)
         </a>
       </div>
     </div>
@@ -522,12 +674,13 @@
         <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
       </div>
       <div class="popup-brand">CRICKET YODDHA</div>
-      <p>Continuous uninterrupted streaming ke liye hamara official Telegram channel join karein. Join karte hi 24-hour pass active ho jayega!</p>
-      <button class="btn-join" onclick="goTelegram()">Unlock Stream Access</button>
+      <div class="accent-bar"></div>
+      <p>Bina kisi buffering ke match dekhne ke liye hamara official Telegram channel join karna zaroori hai. Join karte hi 24 ghante ka free access active ho jayega!</p>
+      <button class="btn-join" onclick="goTelegram()">Unlock Stream Access →</button>
     </div>
   </div>
 
-  <!-- FIREBASE & SCRIPT INTEGRATION -->
+  <!-- SCRIPTS & FIREBASE -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
@@ -569,7 +722,7 @@
         let iframeSrc = "";
         let channelTitle = id.replace(/[-_]/g, ' ').toUpperCase();
 
-        // Detect channel name & source from JSON dynamically
+        // Dynamically extract channel name and source from JSON
         if (data.iframes) {
           const found = data.iframes.find(x => x.id === id);
           if (found) {
@@ -592,7 +745,7 @@
           return;
         }
 
-        // Set dynamic channel title and player source
+        // Display dynamic channel name & set player
         document.getElementById('channel-name').innerText = channelTitle.toUpperCase();
         document.getElementById('main-player').src = iframeSrc;
         document.getElementById('loading-screen').style.display = 'none';
@@ -626,11 +779,11 @@
         navigator.share({ title: 'Cricket Yoddha', url: window.location.href }).catch(() => {});
       } else {
         navigator.clipboard.writeText(window.location.href);
-        alert("Link copied!");
+        alert("Link copied to clipboard!");
       }
     }
 
-    // Loot Ad Loop
+    // Loot Ad Video loop script
     const lootVideo = document.getElementById('lootVideo');
     if (lootVideo) {
       lootVideo.addEventListener('ended', function() {
@@ -641,7 +794,7 @@
       });
     }
 
-    // Firebase Setup
+    // Firebase Live Counter Setup
     const firebaseConfig = { 
       apiKey: "AIzaSyA-vR50CMDYJVHApJir-6fmgRqhFiqQDU8", 
       authDomain: "my-website-cricket.firebaseapp.com", 
