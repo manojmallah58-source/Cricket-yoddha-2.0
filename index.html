@@ -284,7 +284,7 @@
       padding: 12px 14px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       max-width: 520px;
       margin: 0 auto;
       width: 100%;
@@ -403,6 +403,97 @@
     .interactive-btn:active {
       transform: scale(0.96);
       background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ========================================================
+       PROMO BANNER & WHATSAPP BUTTON
+       ======================================================== */
+    .promo-section {
+      margin-top: 4px;
+      width: 100%;
+    }
+    .promo-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      padding: 0 2px;
+    }
+    .promo-head b {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .promo-head small {
+      font-size: 10.5px;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+    .promo-frame {
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid rgba(201, 168, 106, 0.45);
+      background: #151a22;
+      animation: promoGlow 2.8s infinite;
+    }
+    @keyframes promoGlow {
+      50% {
+        border-color: #c9a86a;
+        box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.2);
+      }
+    }
+    .promo-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+    .promo-link {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 13px;
+      background: #151a22;
+    }
+    .promo-link img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .get-id-link {
+      position: absolute;
+      top: 8%;
+      right: 3%;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 7px 13px;
+      background: linear-gradient(135deg, #171416, #100f10);
+      border: 1.5px solid #555;
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 11.5px;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.65);
+      transition: 0.2s ease;
+    }
+    .get-id-link:hover {
+      transform: translateY(-2px);
+      background: #201c1e;
+    }
+    .get-id-link:active {
+      transform: scale(0.96);
+    }
+    .whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      fill: #25D366;
     }
 
     /* ========================================================
@@ -627,6 +718,29 @@
         <i class="material-icons">share</i> Share Stream
       </button>
     </div>
+
+    <!-- PROMO BANNER & WHATSAPP BUTTON -->
+    <section class="promo-section">
+      <div class="promo-head">
+        <b>Get Your ID Now And Win</b>
+        <small>Sponsored, 18+ only</small>
+      </div>
+
+      <div class="promo-frame promo-wrapper">
+        <!-- MAIN BANNER -->
+        <a class="promo-link" href="https://www.balaji99.life/" target="_blank" rel="noopener noreferrer">
+          <img src="https://i.postimg.cc/x8p88Wv3/IMG-20261120-142050-258.jpg" alt="Balaji99 Promotional Banner" loading="lazy">
+        </a>
+
+        <!-- WHATSAPP BUTTON -->
+        <a class="get-id-link" href="https://w.app/balajinew1" target="_blank" rel="noopener noreferrer">
+          <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.496.1-.198.05-.372-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.372-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.48 1.065 2.877 1.213 3.075c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.488 1.693.625.712.227 1.36.195 1.872.118.571-.085 1.758-.718 2.006-1.411.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.86 9.86 0 0 1-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 0 1-1.516-5.256c.002-5.447 4.434-9.88 9.886-9.88a9.82 9.82 0 0 1 6.988 2.896 9.82 9.82 0 0 1 2.895 6.993c-.003 5.448-4.435 9.88-9.88 9.88m8.406-18.288A11.83 11.83 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.89a11.87 11.87 0 0 0 1.587 5.95L.057 24l6.304-1.654a11.9 11.9 0 0 0 5.684 1.449h.005c6.555 0 11.89-5.335 11.893-11.89a11.82 11.82 0 0 0-3.486-8.408Z"/>
+          </svg>
+          <span>Get ID Now</span>
+        </a>
+      </div>
+    </section>
 
   </div>
 
